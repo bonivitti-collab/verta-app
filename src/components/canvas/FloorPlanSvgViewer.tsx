@@ -34,19 +34,19 @@ export const FloorPlanSvgViewer: React.FC = () => {
   return (
     <div className="h-full flex flex-col bg-[#f8fafc] overflow-hidden select-none">
       {/* Canvas Toolbar */}
-      <div className="h-10 bg-white border-b border-[#e5e5e2] px-4 flex items-center justify-between text-xs shadow-2xs">
-        <div className="flex items-center space-x-2">
-          <span className="font-heading font-semibold text-[#121110]">Planta Baixa Arquitetônica 2D</span>
-          <span className="text-[10px] font-mono text-[#946f19] bg-[#fbf7ee] px-1.5 py-0.5 rounded border border-[#ebd8b2] font-medium">
+      <div className="h-10 bg-white border-b border-[#e5e5e2] px-3 flex items-center justify-between text-xs shadow-2xs shrink-0 overflow-x-auto no-scrollbar">
+        <div className="flex items-center space-x-2 shrink-0 mr-2">
+          <span className="font-heading font-semibold text-[#121110] whitespace-nowrap">Planta Baixa 2D</span>
+          <span className="text-[10px] font-mono text-[#946f19] bg-[#fbf7ee] px-1.5 py-0.5 rounded border border-[#ebd8b2] font-medium whitespace-nowrap">
             124.50 m² • NBR 15575
           </span>
         </div>
 
         {/* Action controls */}
-        <div className="flex items-center space-x-1.5">
+        <div className="flex items-center space-x-1.5 shrink-0">
           <button
             onClick={() => setShowSolarPath(!showSolarPath)}
-            className={`px-2 py-1 rounded text-[11px] font-mono flex items-center space-x-1 transition ${
+            className={`px-2 py-1 rounded text-[11px] font-mono flex items-center space-x-1 transition shrink-0 whitespace-nowrap ${
               showSolarPath ? 'bg-[#fbf7ee] text-[#946f19] border border-[#dfc68b] font-medium' : 'bg-[#f7f7f5] text-[#716e68] border border-[#e5e5e2]'
             }`}
             title="Alternar Trajetória Solar e Brisa Marinha"
@@ -57,7 +57,7 @@ export const FloorPlanSvgViewer: React.FC = () => {
 
           <button
             onClick={() => setShowDimensions(!showDimensions)}
-            className={`px-2 py-1 rounded text-[11px] font-mono flex items-center space-x-1 transition ${
+            className={`px-2 py-1 rounded text-[11px] font-mono flex items-center space-x-1 transition shrink-0 whitespace-nowrap ${
               showDimensions ? 'bg-[#f0f9ff] text-[#0369a1] border border-[#bae6fd] font-medium' : 'bg-[#f7f7f5] text-[#716e68] border border-[#e5e5e2]'
             }`}
             title="Alternar Cotas em Metros"
@@ -66,25 +66,25 @@ export const FloorPlanSvgViewer: React.FC = () => {
             <span className="hidden sm:inline">Cotas</span>
           </button>
 
-          <div className="h-4 w-px bg-[#e5e5e2]" />
+          <div className="h-4 w-px bg-[#e5e5e2] shrink-0" />
 
-          <button onClick={handleZoomOut} className="p-1.5 bg-white hover:bg-[#f4f4f2] text-[#423f3b] hover:text-[#121110] rounded border border-[#dededb] transition shadow-2xs">
+          <button onClick={handleZoomOut} className="p-1.5 bg-white hover:bg-[#f4f4f2] text-[#423f3b] hover:text-[#121110] rounded border border-[#dededb] transition shadow-2xs shrink-0" title="Reduzir Zoom">
             <ZoomOut className="w-3.5 h-3.5" />
           </button>
-          <span className="text-[10px] font-mono text-[#716e68] px-1">{Math.round(zoom * 100)}%</span>
-          <button onClick={handleZoomIn} className="p-1.5 bg-white hover:bg-[#f4f4f2] text-[#423f3b] hover:text-[#121110] rounded border border-[#dededb] transition shadow-2xs">
+          <span className="text-[10px] font-mono text-[#716e68] px-1 shrink-0 whitespace-nowrap">{Math.round(zoom * 100)}%</span>
+          <button onClick={handleZoomIn} className="p-1.5 bg-white hover:bg-[#f4f4f2] text-[#423f3b] hover:text-[#121110] rounded border border-[#dededb] transition shadow-2xs shrink-0" title="Aumentar Zoom">
             <ZoomIn className="w-3.5 h-3.5" />
           </button>
-          <button onClick={handleReset} className="p-1.5 bg-white hover:bg-[#f4f4f2] text-[#423f3b] hover:text-[#121110] rounded border border-[#dededb] transition shadow-2xs" title="Redefinir Zoom">
+          <button onClick={handleReset} className="p-1.5 bg-white hover:bg-[#f4f4f2] text-[#423f3b] hover:text-[#121110] rounded border border-[#dededb] transition shadow-2xs shrink-0" title="Redefinir Zoom (100%)">
             <RotateCcw className="w-3.5 h-3.5" />
           </button>
 
           <button
             onClick={handleExportSvg}
-            className="ml-2 px-2.5 py-1 bg-[#121110] hover:bg-[#2c2926] text-white text-[11px] font-medium rounded flex items-center space-x-1.5 transition shadow-xs"
+            className="ml-1 px-2.5 py-1 bg-[#121110] hover:bg-[#2c2926] text-white text-[11px] font-medium rounded flex items-center space-x-1.5 transition shadow-xs shrink-0 whitespace-nowrap"
           >
             <Download className="w-3 h-3" />
-            <span>Exportar SVG</span>
+            <span className="hidden sm:inline">Exportar SVG</span>
           </button>
         </div>
       </div>

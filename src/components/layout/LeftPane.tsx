@@ -14,7 +14,9 @@ import {
   Calculator,
   FileText,
   Camera,
-  MapPinned
+  MapPinned,
+  PanelLeftClose,
+  PanelLeftOpen
 } from 'lucide-react';
 import type { StudioType, Project, CanvasTab } from '../../types';
 
@@ -24,6 +26,9 @@ interface LeftPaneProps {
   activeProject: Project;
   onSelectCanvasTab: (tab: CanvasTab) => void;
   onTriggerPreset: (promptText: string, studio: StudioType) => void;
+  width?: number;
+  isCollapsed?: boolean;
+  onToggleCollapse?: () => void;
 }
 
 export const LeftPane: React.FC<LeftPaneProps> = ({
@@ -31,7 +36,10 @@ export const LeftPane: React.FC<LeftPaneProps> = ({
   onSelectStudio,
   activeProject,
   onSelectCanvasTab,
-  onTriggerPreset
+  onTriggerPreset,
+  width,
+  isCollapsed = false,
+  onToggleCollapse
 }) => {
   const studios = [
     {
@@ -88,17 +96,81 @@ export const LeftPane: React.FC<LeftPaneProps> = ({
     }
   ];
 
+  if (isCollapsed) {
+    return (
+      <aside 
+        style={{ width: '48px' }} 
+        className="h-full bg-[#fafaf9] border-r border-[#e5e5e2] flex flex-col justify-between items-center py-2 select-none shrink-0"
+      >
+        <div className="flex flex-col items-center space-y-3 w-full">
+          {onToggleCollapse && (
+            <button
+              onClick={onToggleCollapse}
+              className="p-2 hover:bg-[#ededeb] rounded-lg text-[#716e68] hover:text-[#121110] transition"
+              title="Expandir painel de Estúdios"
+            >
+              <PanelLeftOpen className="w-4 h-4" />
+            </button>
+          )}
+          <div className="w-5 h-px bg-[#e5e5e2]" />
+          {studios.map(studio => {
+            const Icon = studio.icon;
+            const isActive = activeStudio === studio.id;
+            return (
+              <button
+                key={studio.id}
+                onClick={() => {
+                  onSelectStudio(studio.id);
+                  onSelectCanvasTab(studio.defaultTab);
+                  if (onToggleCollapse) onToggleCollapse();
+                }}
+                className={`p-2 rounded-lg transition relative group ${
+                  isActive ? 'bg-[#121110] text-white shadow-xs' : 'text-[#716e68] hover:text-[#121110] hover:bg-[#f0f0ed]'
+                }`}
+                title={`${studio.name} (${studio.badge}) - Clique para abrir`}
+              >
+                <Icon className="w-4 h-4" />
+                {isActive && (
+                  <span className="absolute right-1 top-1 w-1.5 h-1.5 rounded-full bg-[#d4a359]" />
+                )}
+              </button>
+            );
+          })}
+        </div>
+        <div className="text-[9px] font-mono text-[#946f19] tracking-widest uppercase [writing-mode:vertical-lr] rotate-180 opacity-70 pb-2">
+          ESTÚDIOS
+        </div>
+      </aside>
+    );
+  }
+
   return (
-    <aside className="w-80 h-full bg-[#fafaf9] border-r border-[#e5e5e2] flex flex-col justify-between text-xs overflow-hidden select-none">
-      {/* Top section: Studios List */}
-      <div className="flex-1 overflow-y-auto p-3 space-y-4">
-        {/* Section title */}
-        <div className="flex items-center justify-between px-1">
-          <span className="text-[10px] font-mono uppercase tracking-wider text-[#716e68] font-semibold">Estúdios Centrais</span>
-          <span className="text-[10px] font-mono text-[#946f19] bg-[#fbf7ee] px-1.5 py-0.5 rounded border border-[#e5d5b0] font-semibold">
-            4 Módulos
+    <aside 
+      style={{ width: width ? `${width}px` : undefined }} 
+      className="h-full bg-[#fafaf9] border-r border-[#e5e5e2] flex flex-col justify-between text-xs overflow-hidden select-none shrink-0"
+    >
+      {/* Top Header Bar - Exact 40px (h-10) baseline matching Center and Right panes */}
+      <div className="h-10 border-b border-[#e5e5e2] px-3 flex items-center justify-between bg-[#fafaf9] shrink-0">
+        <div className="flex items-center space-x-2">
+          <span className="text-[10px] font-mono uppercase tracking-wider text-[#716e68] font-bold">Estúdios & Módulos</span>
+          <span className="text-[9px] font-mono text-[#946f19] bg-[#fbf7ee] px-1.5 py-0.5 rounded border border-[#ebd8b2] font-semibold">
+            4 Centrais
           </span>
         </div>
+        {onToggleCollapse && (
+          <button
+            onClick={onToggleCollapse}
+            className="p-1 hover:bg-[#ededeb] rounded text-[#716e68] hover:text-[#121110] transition"
+            title="Recolher painel de estúdios"
+          >
+            <PanelLeftClose className="w-3.5 h-3.5" />
+          </button>
+        )}
+      </div>
+
+      {/* Main section: Studios List */}
+      <div className="flex-1 overflow-y-auto p-3 space-y-4">
+        {/* Studios Navigation */}
 
         {/* Studios Navigation */}
         <div className="space-y-2">

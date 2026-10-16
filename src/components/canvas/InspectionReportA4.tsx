@@ -7,7 +7,10 @@ import {
   FileCheck2, 
   QrCode, 
   ToggleLeft, 
-  ToggleRight 
+  ToggleRight,
+  ZoomIn,
+  ZoomOut,
+  RotateCcw
 } from 'lucide-react';
 import type { InspectionData } from '../../types';
 
@@ -21,6 +24,7 @@ export const InspectionReportA4: React.FC<InspectionReportA4Props> = ({
   isFreeTier = false,
 }) => {
   const [showWatermark, setShowWatermark] = useState<boolean>(isFreeTier);
+  const [zoom, setZoom] = useState<number>(0.9);
 
   const handlePrint = () => {
     window.print();
@@ -29,43 +33,72 @@ export const InspectionReportA4: React.FC<InspectionReportA4Props> = ({
   return (
     <div className="h-full flex flex-col bg-[#f1f1ef] text-xs select-none overflow-hidden">
       {/* Report Controls Bar */}
-      <div className="h-10 bg-white border-b border-[#e5e5e2] px-4 flex items-center justify-between text-xs shadow-2xs">
-        <div className="flex items-center space-x-2">
+      <div className="h-10 bg-white border-b border-[#e5e5e2] px-3 flex items-center justify-between text-xs shadow-2xs shrink-0 overflow-x-auto no-scrollbar">
+        <div className="flex items-center space-x-2 shrink-0 mr-2">
           <FileCheck2 className="w-4 h-4 text-[#946f19]" />
-          <span className="font-heading font-semibold text-[#121110]">Laudo Técnico Pericial A4</span>
-          <span className="text-[10px] font-mono text-[#946f19] bg-[#fbf7ee] px-1.5 py-0.5 rounded border border-[#ebd8b2] font-medium">
+          <span className="font-heading font-semibold text-[#121110] whitespace-nowrap">Laudo Pericial A4</span>
+          <span className="text-[10px] font-mono text-[#946f19] bg-[#fbf7ee] px-1.5 py-0.5 rounded border border-[#ebd8b2] font-medium whitespace-nowrap">
             ABNT NBR 13752
           </span>
         </div>
 
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-2 shrink-0">
+          {/* Zoom controls for clean viewing at any width */}
+          <div className="flex items-center space-x-1 border-r border-[#e5e5e2] pr-2">
+            <button 
+              onClick={() => setZoom(prev => Math.max(prev - 0.1, 0.5))} 
+              className="p-1 hover:bg-[#f4f4f2] text-[#423f3b] rounded border border-[#dededb] transition"
+              title="Reduzir Escala da Folha A4"
+            >
+              <ZoomOut className="w-3.5 h-3.5" />
+            </button>
+            <span className="text-[10px] font-mono text-[#716e68] px-1 whitespace-nowrap">{Math.round(zoom * 100)}%</span>
+            <button 
+              onClick={() => setZoom(prev => Math.min(prev + 0.1, 1.3))} 
+              className="p-1 hover:bg-[#f4f4f2] text-[#423f3b] rounded border border-[#dededb] transition"
+              title="Aumentar Escala da Folha A4"
+            >
+              <ZoomIn className="w-3.5 h-3.5" />
+            </button>
+            <button 
+              onClick={() => setZoom(0.9)} 
+              className="p-1 hover:bg-[#f4f4f2] text-[#423f3b] rounded border border-[#dededb] transition"
+              title="Redefinir Escala Padrão"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+            </button>
+          </div>
+
           {/* Watermark toggle (Freemium demonstration) */}
           <button
             onClick={() => setShowWatermark(!showWatermark)}
-            className={`flex items-center space-x-1.5 px-2.5 py-1 rounded text-[11px] font-mono transition border ${
+            className={`flex items-center space-x-1 px-2 py-1 rounded text-[11px] font-mono transition border shrink-0 whitespace-nowrap ${
               showWatermark 
                 ? 'bg-amber-50 text-amber-800 border-amber-300 font-medium' 
                 : 'bg-white text-[#716e68] border-[#dededb]'
             }`}
           >
-            {showWatermark ? <ToggleRight className="w-4 h-4 text-amber-600" /> : <ToggleLeft className="w-4 h-4 text-[#a8a49c]" />}
-            <span>{showWatermark ? "Marca d'água: ATIVA (Plano Free)" : "Marca d'água: DESATIVADA (Pro)"}</span>
+            {showWatermark ? <ToggleRight className="w-3.5 h-3.5 text-amber-600" /> : <ToggleLeft className="w-3.5 h-3.5 text-[#a8a49c]" />}
+            <span className="hidden sm:inline">{showWatermark ? "Marca d'água: ATIVA" : "Marca d'água: OFF"}</span>
           </button>
 
           <button
             onClick={handlePrint}
-            className="px-3 py-1 bg-[#121110] hover:bg-[#282624] text-white text-[11px] font-semibold rounded flex items-center space-x-1.5 transition shadow-xs"
+            className="px-2.5 py-1 bg-[#121110] hover:bg-[#282624] text-white text-[11px] font-semibold rounded flex items-center space-x-1.5 transition shadow-xs shrink-0 whitespace-nowrap"
           >
             <Printer className="w-3.5 h-3.5" />
-            <span>Imprimir / Salvar PDF</span>
+            <span>Imprimir A4</span>
           </button>
         </div>
       </div>
 
       {/* A4 Sheet Container */}
-      <div className="flex-1 overflow-auto p-6 flex justify-center bg-[#f1f1ef]">
-        {/* Printable Sheet */}
-        <div className="relative w-[794px] min-h-[1123px] bg-white text-[#111827] shadow-xl shadow-neutral-300/80 rounded-sm p-12 flex flex-col justify-between font-sans border border-[#e2e2df] print:border-none print:p-0 print:shadow-none print:w-full">
+      <div className="flex-1 overflow-auto p-4 flex justify-center bg-[#f1f1ef]">
+        {/* Printable Sheet with scale transform */}
+        <div 
+          style={{ transform: `scale(${zoom})`, transformOrigin: 'top center', transition: 'transform 0.15s ease-out' }}
+          className="relative w-[794px] min-h-[1123px] bg-white text-[#111827] shadow-xl shadow-neutral-300/80 rounded-sm p-12 flex flex-col justify-between font-sans border border-[#e2e2df] print:border-none print:p-0 print:shadow-none print:w-full shrink-0 my-2"
+        >
           {/* Watermark Overlay (if enabled) */}
           {showWatermark && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 overflow-hidden">

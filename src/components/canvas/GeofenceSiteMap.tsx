@@ -28,12 +28,12 @@ export const GeofenceSiteMap: React.FC<GeofenceSiteMapProps> = ({
   return (
     <div className="h-full flex flex-col bg-[#f8fafc] text-xs select-none overflow-hidden">
       {/* Top Bar */}
-      <div className="h-10 bg-white border-b border-[#e5e5e2] px-4 flex items-center justify-between text-xs shadow-2xs">
-        <div className="flex items-center space-x-2">
+      <div className="h-10 bg-white border-b border-[#e5e5e2] px-3 flex items-center justify-between text-xs shadow-2xs shrink-0 overflow-x-auto no-scrollbar">
+        <div className="flex items-center space-x-2 shrink-0 mr-2">
           <MapPinned className="w-4 h-4 text-[#946f19]" />
-          <span className="font-heading font-semibold text-[#121110]">Verta Ponto GPS & Auditoria de Insumos</span>
-          <span className="text-[10px] font-mono text-[#946f19] bg-[#fbf7ee] px-1.5 py-0.5 rounded border border-[#ebd8b2] font-medium">
-            Cerca Virtual Raio 30m • Portaria 671 MTE
+          <span className="font-heading font-semibold text-[#121110] whitespace-nowrap">Verta Ponto GPS</span>
+          <span className="text-[10px] font-mono text-[#946f19] bg-[#fbf7ee] px-1.5 py-0.5 rounded border border-[#ebd8b2] font-medium whitespace-nowrap">
+            Raio 30m • Portaria 671 MTE
           </span>
         </div>
 

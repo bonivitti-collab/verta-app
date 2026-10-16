@@ -102,9 +102,9 @@ export const CenterPane: React.FC<CenterPaneProps> = ({
   };
 
   return (
-    <section className="flex-1 h-full bg-white flex flex-col justify-between border-r border-[#e5e5e2] overflow-hidden">
-      {/* Center Header */}
-      <div className="h-11 border-b border-[#e5e5e2] px-4 flex items-center justify-between bg-[#fafaf9]">
+    <section className="flex-1 h-full min-w-[280px] bg-white flex flex-col justify-between overflow-hidden">
+      {/* Center Header - Exact 40px (h-10) baseline matching Left and Right panes */}
+      <div className="h-10 border-b border-[#e5e5e2] px-4 flex items-center justify-between bg-[#fafaf9] shrink-0">
         <div className="flex items-center space-x-2">
           <div className="w-2 h-2 rounded-full bg-[#121110] animate-ping" />
           <span className="font-heading font-semibold text-xs text-[#121110]">VERTA Core AI</span>

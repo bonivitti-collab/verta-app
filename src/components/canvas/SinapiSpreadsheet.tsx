@@ -80,7 +80,7 @@ export const SinapiSpreadsheet: React.FC<SinapiSpreadsheetProps> = ({
   return (
     <div className="h-full flex flex-col bg-white text-xs select-none overflow-hidden">
       {/* Top Telemetry & BDI Control Bar */}
-      <div className="bg-[#fafaf9] border-b border-[#e5e5e2] p-3 space-y-2">
+      <div className="bg-[#fafaf9] border-b border-[#e5e5e2] p-3 space-y-2 shrink-0">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center space-x-2">
             <FileSpreadsheet className="w-4 h-4 text-[#946f19]" />
@@ -93,7 +93,7 @@ export const SinapiSpreadsheet: React.FC<SinapiSpreadsheetProps> = ({
           <div className="flex items-center space-x-2">
             <button
               onClick={exportCsv}
-              className="px-2.5 py-1 bg-white hover:bg-[#f4f4f2] border border-[#dcdcd8] text-[#121110] text-[11px] font-medium rounded flex items-center space-x-1.5 transition shadow-2xs"
+              className="px-2.5 py-1 bg-white hover:bg-[#f4f4f2] border border-[#dcdcd8] text-[#121110] text-[11px] font-medium rounded flex items-center space-x-1.5 transition shadow-2xs whitespace-nowrap"
             >
               <Download className="w-3 h-3 text-[#716e68]" />
               <span>Exportar Excel (CSV)</span>
@@ -145,9 +145,9 @@ export const SinapiSpreadsheet: React.FC<SinapiSpreadsheetProps> = ({
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="h-10 bg-white border-b border-[#e5e5e2] px-3 flex items-center justify-between gap-2">
+      <div className="h-10 bg-white border-b border-[#e5e5e2] px-3 flex items-center justify-between gap-2 shrink-0">
         <div className="flex items-center space-x-2 flex-1 max-w-xs">
-          <Search className="w-3.5 h-3.5 text-[#8c8882]" />
+          <Search className="w-3.5 h-3.5 text-[#8c8882] shrink-0" />
           <input
             type="text"
             placeholder="Filtrar por código SINAPI ou descrição..."
@@ -158,12 +158,12 @@ export const SinapiSpreadsheet: React.FC<SinapiSpreadsheetProps> = ({
         </div>
 
         {/* Stage Pills */}
-        <div className="flex items-center space-x-1 overflow-x-auto text-[10px] font-mono no-scrollbar">
+        <div className="flex items-center space-x-1 overflow-x-auto text-[10px] font-mono no-scrollbar shrink-0">
           {stages.map(st => (
             <button
               key={st}
               onClick={() => setSelectedStage(st)}
-              className={`px-2 py-0.5 rounded capitalize transition font-medium ${
+              className={`px-2 py-0.5 rounded capitalize transition font-medium shrink-0 whitespace-nowrap ${
                 selectedStage === st 
                   ? 'bg-[#121110] text-white' 
                   : 'text-[#716e68] hover:text-[#121110] hover:bg-[#f4f4f2]'

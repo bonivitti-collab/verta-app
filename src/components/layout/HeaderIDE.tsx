@@ -33,7 +33,7 @@ export const HeaderIDE: React.FC<HeaderIDEProps> = ({
   credits,
 }) => {
   return (
-    <header className="h-13 bg-white border-b border-[#e5e5e2] px-4 flex items-center justify-between text-xs select-none z-30 shadow-xs">
+    <header className="h-12 bg-white border-b border-[#e5e5e2] px-4 flex items-center justify-between text-xs select-none z-30 shrink-0">
       {/* Brand & Workspace */}
       <div className="flex items-center space-x-4">
         <div className="flex items-center space-x-2.5">

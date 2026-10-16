@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { HeaderIDE } from './components/layout/HeaderIDE';
 import { LeftPane } from './components/layout/LeftPane';
 import { CenterPane } from './components/layout/CenterPane';
 import { RightPane } from './components/layout/RightPane';
+import { PanelResizer } from './components/layout/PanelResizer';
 import { ApiKeyModal } from './components/modals/ApiKeyModal';
 import { SubscriptionPlansModal } from './components/modals/SubscriptionPlansModal';
 import { NewProjectModal } from './components/modals/NewProjectModal';
@@ -35,6 +36,91 @@ export const App: React.FC = () => {
   const [activeProject, setActiveProject] = useState<Project>(INITIAL_PROJECTS[0]);
   const [activeStudio, setActiveStudio] = useState<StudioType>('project');
   const [activeCanvasTab, setActiveCanvasTab] = useState<CanvasTab>('floorplan');
+
+  // Panel resizing states (customizable widths with persistence)
+  const [leftWidth, setLeftWidth] = useState<number>(() => {
+    const saved = localStorage.getItem('verta_panel_left_width');
+    return saved ? Math.max(180, Math.min(parseInt(saved, 10), 480)) : 280;
+  });
+
+  const [rightWidth, setRightWidth] = useState<number>(() => {
+    const saved = localStorage.getItem('verta_panel_right_width');
+    return saved ? Math.max(340, Math.min(parseInt(saved, 10), 960)) : 600;
+  });
+
+  const [isLeftCollapsed, setIsLeftCollapsed] = useState<boolean>(false);
+  const [isCanvasMaximized, setIsCanvasMaximized] = useState<boolean>(false);
+  const [activeResizer, setActiveResizer] = useState<'left' | 'right' | null>(null);
+
+  const activeResizerRef = useRef<'left' | 'right' | null>(null);
+  activeResizerRef.current = activeResizer;
+
+  const leftWidthRef = useRef(leftWidth);
+  leftWidthRef.current = leftWidth;
+
+  const rightWidthRef = useRef(rightWidth);
+  rightWidthRef.current = rightWidth;
+
+  const isLeftCollapsedRef = useRef(isLeftCollapsed);
+  isLeftCollapsedRef.current = isLeftCollapsed;
+
+  // Global mousemove and mouseup listeners for smooth panel dragging
+  useEffect(() => {
+    if (!activeResizer) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const mode = activeResizerRef.current;
+      if (!mode) return;
+
+      if (mode === 'left') {
+        const minLeft = 180;
+        const maxLeft = Math.min(480, window.innerWidth - rightWidthRef.current - 260);
+        const newLeft = Math.max(minLeft, Math.min(e.clientX, maxLeft));
+        setLeftWidth(newLeft);
+      } else if (mode === 'right') {
+        const minRight = 340;
+        const currentLeftW = isLeftCollapsedRef.current ? 48 : leftWidthRef.current;
+        const maxRight = Math.max(340, window.innerWidth - currentLeftW - 260);
+        const newRight = Math.max(minRight, Math.min(window.innerWidth - e.clientX, maxRight));
+        setRightWidth(newRight);
+      }
+    };
+
+    const handleMouseUp = () => {
+      const mode = activeResizerRef.current;
+      if (mode === 'left') {
+        localStorage.setItem('verta_panel_left_width', leftWidthRef.current.toString());
+      } else if (mode === 'right') {
+        localStorage.setItem('verta_panel_right_width', rightWidthRef.current.toString());
+      }
+      setActiveResizer(null);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', handleMouseUp);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [activeResizer]);
+
+  const handleToggleLeftCollapse = () => {
+    setIsLeftCollapsed(prev => !prev);
+  };
+
+  const handleToggleMaximize = () => {
+    setIsCanvasMaximized(prev => !prev);
+  };
+
+  const handleResetPanels = () => {
+    setLeftWidth(280);
+    setRightWidth(600);
+    setIsLeftCollapsed(false);
+    setIsCanvasMaximized(false);
+    localStorage.setItem('verta_panel_left_width', '280');
+    localStorage.setItem('verta_panel_right_width', '600');
+  };
 
   // Business Model & Credits
   const [tier, setTier] = useState<SubscriptionTier>('construtora');
@@ -180,26 +266,60 @@ Estou sincronizado com a obra ativa **${activeProject.name}** (${activeProject.c
       />
 
       {/* Main Three-Pane Layout */}
-      <main className="flex-1 flex overflow-hidden">
-        {/* Left Pane (Workspace, 4 Studios, Telemetry) */}
-        <LeftPane
-          activeStudio={activeStudio}
-          onSelectStudio={setActiveStudio}
-          activeProject={activeProject}
-          onSelectCanvasTab={setActiveCanvasTab}
-          onTriggerPreset={handleTriggerPreset}
-        />
+      <main className={`flex-1 flex overflow-hidden relative ${activeResizer ? 'cursor-col-resize select-none pointer-events-auto' : ''}`}>
+        {!isCanvasMaximized && (
+          <>
+            {/* Left Pane (Workspace, 4 Studios, Telemetry) */}
+            <LeftPane
+              activeStudio={activeStudio}
+              onSelectStudio={setActiveStudio}
+              activeProject={activeProject}
+              onSelectCanvasTab={setActiveCanvasTab}
+              onTriggerPreset={handleTriggerPreset}
+              width={isLeftCollapsed ? 48 : leftWidth}
+              isCollapsed={isLeftCollapsed}
+              onToggleCollapse={handleToggleLeftCollapse}
+            />
 
-        {/* Center Pane (Verta AI Agent, CoT streaming, Multimodal) */}
-        <CenterPane
-          activeStudio={activeStudio}
-          messages={messages}
-          onSendMessage={handleSendMessage}
-          isLoading={isLoading}
-          onSelectCanvasTab={setActiveCanvasTab}
-          presetText={presetText}
-          onClearPreset={() => setPresetText(undefined)}
-        />
+            {/* Left-Center Panel Splitter */}
+            {!isLeftCollapsed && (
+              <PanelResizer
+                isDragging={activeResizer === 'left'}
+                onMouseDown={(e) => {
+                  e.preventDefault();
+                  setActiveResizer('left');
+                }}
+                onDoubleClick={handleToggleLeftCollapse}
+                title="Arraste para redimensionar (clique duplo para recolher estúdios)"
+              />
+            )}
+
+            {/* Center Pane (Verta AI Agent, CoT streaming, Multimodal) */}
+            <CenterPane
+              activeStudio={activeStudio}
+              messages={messages}
+              onSendMessage={handleSendMessage}
+              isLoading={isLoading}
+              onSelectCanvasTab={setActiveCanvasTab}
+              presetText={presetText}
+              onClearPreset={() => setPresetText(undefined)}
+            />
+
+            {/* Center-Right Panel Splitter */}
+            <PanelResizer
+              isDragging={activeResizer === 'right'}
+              onMouseDown={(e) => {
+                e.preventDefault();
+                setActiveResizer('right');
+              }}
+              onDoubleClick={() => {
+                setRightWidth(600);
+                localStorage.setItem('verta_panel_right_width', '600');
+              }}
+              title="Arraste para redimensionar Canvas (clique duplo para redefinir para 600px)"
+            />
+          </>
+        )}
 
         {/* Right Pane (Dynamic Canvas & Live Preview) */}
         <RightPane
@@ -212,6 +332,10 @@ Estou sincronizado com a obra ativa **${activeProject.name}** (${activeProject.c
           workers={workers}
           materials={materials}
           tier={tier}
+          width={isCanvasMaximized ? undefined : rightWidth}
+          isMaximized={isCanvasMaximized}
+          onToggleMaximize={handleToggleMaximize}
+          onResetPanels={handleResetPanels}
         />
       </main>
 
