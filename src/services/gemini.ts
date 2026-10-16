@@ -16,11 +16,15 @@ export interface AiGenerationResult {
 }
 
 export function getStoredApiKey(): string {
-  return localStorage.getItem('VERTA_GEMINI_API_KEY') || import.meta.env.VITE_GEMINI_API_KEY || '';
+  return localStorage.getItem('VERTA_AI_API_KEY') || 
+         localStorage.getItem('VERTA_GEMINI_API_KEY') || 
+         import.meta.env.VITE_AI_API_KEY || 
+         import.meta.env.VITE_GEMINI_API_KEY || 
+         '';
 }
 
 export function setStoredApiKey(key: string): void {
-  localStorage.setItem('VERTA_GEMINI_API_KEY', key);
+  localStorage.setItem('VERTA_AI_API_KEY', key);
 }
 
 const STUDIO_SYSTEM_PROMPTS: Record<StudioType, string> = {
@@ -101,7 +105,7 @@ export async function generateEngineeringSolution(
         text: responseText,
         thoughts: [
           { title: 'Análise de Diretrizes Técnicas', detail: `Contexto do estúdio ${studio.toUpperCase()} e normas ABNT aplicadas com sucesso.`, status: 'done', normRef: 'ABNT NBR' },
-          { title: 'Processamento de Inferência', detail: `Modelo Gemini Flash executado via @google/genai com streaming de alta densidade.`, status: 'done' },
+          { title: 'Processamento de Inferência', detail: `Inferência processada no VERTA Neural Engine com streaming de alta densidade.`, status: 'done' },
           { title: 'Auditoria de Margem e Custos', detail: `Custo da requisição R$ ${costBrl.toFixed(4)} (Margem bruta superior a 92% sob o plano).`, status: 'done' },
         ],
         tokensUsed: totalTokens,

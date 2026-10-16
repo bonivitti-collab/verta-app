@@ -234,7 +234,7 @@ export const CenterPane: React.FC<CenterPaneProps> = ({
             <div className="bg-[#fafaf9] border border-[#e5e5e2] rounded-xl p-4 text-xs max-w-sm space-y-3 shadow-xs">
               <div className="flex items-center space-x-2 text-[#946f19]">
                 <Sparkles className="w-4 h-4 animate-spin text-[#946f19]" />
-                <span className="font-mono text-[11px] font-medium">Calculando inferência no Gemini 3.8 Flash...</span>
+                <span className="font-mono text-[11px] font-medium">Calculando inferência no VERTA Neural Engine...</span>
               </div>
               <div className="space-y-1.5">
                 <div className="h-2 bg-[#e8e8e5] rounded-full w-3/4 animate-pulse" />
@@ -325,7 +325,7 @@ export const CenterPane: React.FC<CenterPaneProps> = ({
 
         <div className="mt-1.5 flex items-center justify-between text-[9px] font-mono text-[#8c8882] px-1">
           <span>Pressione Enter para enviar, Shift+Enter para nova linha</span>
-          <span>Modelo: Gemini 2.5/3.8 Flash • Raciocínio Profundo</span>
+          <span>Motor: VERTA Core Neural Engine • Raciocínio Profundo</span>
         </div>
       </div>
     </section>

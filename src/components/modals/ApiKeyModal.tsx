@@ -26,7 +26,7 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({ isOpen, onClose }) => 
   const handleTestKey = async () => {
     if (!apiKey.trim()) {
       setStatus('error');
-      setErrorMessage('Por favor, informe a API Key do Google Gemini.');
+      setErrorMessage('Por favor, informe a Chave de Acesso da IA.');
       return;
     }
 
@@ -49,7 +49,7 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({ isOpen, onClose }) => 
     } catch (err: any) {
       console.error(err);
       setStatus('error');
-      setErrorMessage(err.message || 'Falha ao autenticar com a API do Google Gemini.');
+      setErrorMessage(err.message || 'Falha ao autenticar com o motor neural de IA.');
     }
   };
 
@@ -63,8 +63,8 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({ isOpen, onClose }) => 
               <Key className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="font-heading font-bold text-sm text-[#121110]">Google Gemini API Key</h3>
-              <p className="text-[10px] text-[#716e68]">Conexão direta oficial com o SDK @google/genai</p>
+              <h3 className="font-heading font-bold text-sm text-[#121110]">Chave de Conexão da IA</h3>
+              <p className="text-[10px] text-[#716e68]">Conexão segura com o motor neural de engenharia</p>
             </div>
           </div>
           <button onClick={onClose} className="p-1 hover:bg-[#f4f4f2] rounded text-[#716e68]">
@@ -79,20 +79,20 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({ isOpen, onClose }) => 
             <span>Controle de Custos e Margem Líquida</span>
           </div>
           <p className="text-[#69531e] leading-relaxed">
-            O VERTA opera com tokens de alta eficiência via Gemini 3.8 / 2.5 Flash, 
-            garantindo que cada inferência de engenharia custe frações de centavo e mantenha 
+            O VERTA opera com modelo neural de alta eficiência e raciocínio técnico para engenharia civil, 
+            garantindo que cada inferência custe frações de centavo e mantenha 
             a margem de lucro SaaS superior a 85%.
           </p>
         </div>
 
         {/* Input */}
         <div className="space-y-1.5">
-          <label className="text-[11px] font-mono text-[#55524e] font-semibold block">Chave de API (AI Studio / Vertex):</label>
+          <label className="text-[11px] font-mono text-[#55524e] font-semibold block">Chave de Acesso da IA (API Key):</label>
           <input
             type="password"
             value={apiKey}
             onChange={(e) => setApiKey(e.target.value)}
-            placeholder="AIzaSy..."
+            placeholder="Chave de inferência neural..."
             className="w-full bg-[#f8f8f6] border border-[#dcdcd8] focus:border-[#121110] focus:bg-white rounded-lg px-3 py-2 text-[#121110] font-mono text-xs focus:outline-none"
           />
         </div>
@@ -101,7 +101,7 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({ isOpen, onClose }) => 
         {status === 'testing' && (
           <div className="text-[#946f19] text-[11px] flex items-center space-x-1.5 font-mono font-medium">
             <Cpu className="w-3.5 h-3.5 animate-spin" />
-            <span>Validando chave com @google/genai...</span>
+            <span>Validando chave com o motor neural de IA...</span>
           </div>
         )}
 
@@ -127,7 +127,7 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({ isOpen, onClose }) => 
             rel="noopener noreferrer"
             className="text-[10px] text-[#716e68] hover:text-[#121110] flex items-center space-x-1 font-mono transition"
           >
-            <span>Obter chave no Google AI Studio</span>
+            <span>Obter credencial de acesso</span>
             <ExternalLink className="w-2.5 h-2.5" />
           </a>
 

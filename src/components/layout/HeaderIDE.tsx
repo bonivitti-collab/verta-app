@@ -104,7 +104,7 @@ export const HeaderIDE: React.FC<HeaderIDEProps> = ({
         <div className="flex items-center space-x-1.5 text-[#55524e]">
           <Cpu className="w-3.5 h-3.5 text-[#946f19] animate-pulse" />
           <span>Core AI:</span>
-          <span className="text-[#121110] font-mono font-medium">Gemini 3.8 Flash</span>
+          <span className="text-[#121110] font-mono font-medium">VERTA Engine v2.5</span>
         </div>
         <div className="h-3 w-px bg-[#e0e0dc]" />
         <div className="flex items-center space-x-1 text-[#16a34a] font-medium">
@@ -137,14 +137,14 @@ export const HeaderIDE: React.FC<HeaderIDEProps> = ({
           </span>
         </button>
 
-        {/* Gemini API Key button */}
+        {/* AI Key connection button */}
         <button
           onClick={onOpenApiKeyModal}
           className="flex items-center space-x-1.5 bg-[#f7f7f5] hover:bg-[#ededeb] border border-[#e0e0dc] hover:border-[#cbcbc5] px-2.5 py-1 rounded-md text-[#423f3b] hover:text-[#121110] transition"
-          title="Configurar Google Gemini API Key"
+          title="Configurar Conexão e Chave de IA"
         >
           <Key className="w-3 h-3 text-[#946f19]" />
-          <span className="hidden sm:inline font-medium">Gemini API</span>
+          <span className="hidden sm:inline font-medium">Conexão IA</span>
         </button>
       </div>
     </header>

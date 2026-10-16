@@ -73,7 +73,7 @@ export const SubscriptionPlansModal: React.FC<SubscriptionPlansModalProps> = ({
         'Controle antifraude de insumos (cimento/concreto)',
         'Laudos ilimitados e ART digitalizada',
         'Projetos e canteiros ilimitados',
-        'Controle de margem de lucro com Gemini Flash',
+        'Controle inteligente de consumo de tokens com alta margem de lucro',
         'Suporte prioritário de Engenharia Sentinel',
       ],
       notIncluded: []

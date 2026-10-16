@@ -6,17 +6,17 @@
 [![React 19](https://img.shields.io/badge/React-19.0-61DAFB?style=flat-square&logo=react)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8.3-646CFF?style=flat-square&logo=vite)](https://vite.dev/)
 [![Tailwind CSS v4](https://img.shields.io/badge/TailwindCSS-v4.0-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
-[![Google GenAI SDK](https://img.shields.io/badge/Google%20GenAI-Gemini%203.8%20Flash-4285F4?style=flat-square&logo=google)](https://aistudio.google.com/)
+[![VERTA AI Core](https://img.shields.io/badge/VERTA%20Core-Neural%20Engine%20v2.5-946f19?style=flat-square)](https://github.com/bonivitti-collab/verta-app)
 
 ---
 
 ## 🏛️ Visão Geral
 
-O **VERTA** foi concebido sob a estética ultra-premium de **IDE Técnico em Dark Mode** (inspirado no Antigravity IDE e Cursor), estruturado em um layout de 3 painéis (**Three-Pane IDE Layout**):
+O **VERTA** foi concebido sob a estética ultra-clean de **IDE Técnico Minimalista** (inspirado no Antigravity IDE), estruturado em um layout de 3 painéis (**Three-Pane IDE Layout**):
 
 ```
 +---------------------------------------------------------------------------------------------------+
-|  [VERTA IDE]  Residencial Costa Esmeralda - Lote 14B  |  Core AI: Gemini 3.8  |  84/100 cr  [Key]  |
+|  [VERTA IDE]  Residencial Costa Esmeralda - Lote 14B  |  Core AI: VERTA v2.5  |  84/100 cr  [Key]  |
 +--------------------------+-------------------------------------+----------------------------------+
 | PAINEL ESQUERDO          | PAINEL CENTRAL                      | PAINEL DIREITO                   |
 | (Workspace & Estúdios)   | (Agente IA Verta)                   | (Dynamic Canvas & Live Preview)  |
@@ -82,12 +82,12 @@ http://localhost:5173
 
 ---
 
-## 🔒 Segurança e API Google Gemini
+## 🔒 Segurança e Conexão Neural de Backend
 
-O VERTA integra-se nativamente com a API oficial do Google Gemini via `@google/genai`. Você pode configurar sua chave pessoal em tempo de execução no botão **Gemini API** na barra superior ou definir a variável `.env`:
+O VERTA integra-se no backend via SDK oficial `@google/genai` com controle de telemetria e margem de consumo superior a 85%. Você pode configurar a chave de inferência no botão **Conexão IA** na barra superior ou definir a variável `.env`:
 
 ```env
-VITE_GEMINI_API_KEY=AIzaSy...
+VITE_AI_API_KEY=...
 ```
 
 Desenvolvido com excelência para o ecossistema **Grupo Vitti / Sentinel Systems**.
