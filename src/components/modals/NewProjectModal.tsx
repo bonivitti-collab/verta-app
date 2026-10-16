@@ -55,7 +55,7 @@ export const NewProjectModal: React.FC<NewProjectModalProps> = ({
         {/* Header */}
         <div className="flex items-center justify-between border-b border-[#ededeb] pb-3">
           <div className="flex items-center space-x-2.5">
-            <div className="w-8 h-8 rounded-lg bg-[#fbf7ee] border border-[#dfc68b] flex items-center justify-center text-[#946f19]">
+            <div className="w-8 h-8 rounded-lg bg-[#f0f9ff] border border-[#bae6fd] flex items-center justify-center text-[#0284c7]">
               <Building2 className="w-4 h-4" />
             </div>
             <div>

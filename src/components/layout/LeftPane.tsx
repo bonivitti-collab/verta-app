@@ -131,13 +131,13 @@ export const LeftPane: React.FC<LeftPaneProps> = ({
               >
                 <Icon className="w-4 h-4" />
                 {isActive && (
-                  <span className="absolute right-1 top-1 w-1.5 h-1.5 rounded-full bg-[#d4a359]" />
+                  <span className="absolute right-1 top-1 w-1.5 h-1.5 rounded-full bg-[#0284c7]" />
                 )}
               </button>
             );
           })}
         </div>
-        <div className="text-[9px] font-mono text-[#946f19] tracking-widest uppercase [writing-mode:vertical-lr] rotate-180 opacity-70 pb-2">
+        <div className="text-[9px] font-mono text-[#0284c7] tracking-widest uppercase [writing-mode:vertical-lr] rotate-180 opacity-70 pb-2">
           ESTÚDIOS
         </div>
       </aside>
@@ -153,7 +153,7 @@ export const LeftPane: React.FC<LeftPaneProps> = ({
       <div className="h-10 border-b border-[#e5e5e2] px-3 flex items-center justify-between bg-[#fafaf9] shrink-0">
         <div className="flex items-center space-x-2">
           <span className="text-[10px] font-mono uppercase tracking-wider text-[#716e68] font-bold">Estúdios & Módulos</span>
-          <span className="text-[9px] font-mono text-[#946f19] bg-[#fbf7ee] px-1.5 py-0.5 rounded border border-[#ebd8b2] font-semibold">
+          <span className="text-[9px] font-mono text-[#0284c7] bg-[#f0f9ff] px-1.5 py-0.5 rounded border border-[#bae6fd] font-semibold">
             4 Centrais
           </span>
         </div>
@@ -170,8 +170,6 @@ export const LeftPane: React.FC<LeftPaneProps> = ({
 
       {/* Main section: Studios List */}
       <div className="flex-1 overflow-y-auto p-3 space-y-4">
-        {/* Studios Navigation */}
-
         {/* Studios Navigation */}
         <div className="space-y-2">
           {studios.map((studio) => {
@@ -213,7 +211,7 @@ export const LeftPane: React.FC<LeftPaneProps> = ({
                     </div>
                   </div>
                   <div className="flex items-center space-x-1">
-                    <span className="text-[9px] font-mono text-[#946f19] bg-[#fbf7ee] px-1.5 py-0.5 rounded font-medium border border-[#ebd8b2]">
+                    <span className="text-[9px] font-mono text-[#0284c7] bg-[#f0f9ff] px-1.5 py-0.5 rounded font-medium border border-[#bae6fd]">
                       {studio.badge}
                     </span>
                     <ChevronRight className={`w-3.5 h-3.5 transition ${isActive ? 'rotate-90 text-[#121110]' : 'text-[#8c8882]'}`} />
@@ -235,7 +233,7 @@ export const LeftPane: React.FC<LeftPaneProps> = ({
                           }}
                           className="w-full text-left px-2 py-1.5 rounded text-[11px] text-[#423f3b] hover:text-[#121110] hover:bg-white flex items-center space-x-2 transition group border border-transparent hover:border-[#e5e5e2]"
                         >
-                          <ToolIcon className="w-3 h-3 text-[#946f19] group-hover:text-[#121110]" />
+                          <ToolIcon className="w-3 h-3 text-[#0284c7] group-hover:text-[#121110]" />
                           <span className="truncate">{tool.name}</span>
                         </button>
                       );
@@ -251,7 +249,7 @@ export const LeftPane: React.FC<LeftPaneProps> = ({
         <div className="bg-white border border-[#e5e5e2] rounded-lg p-3 space-y-2.5 shadow-xs">
           <div className="flex items-center justify-between text-[10px] font-mono text-[#716e68]">
             <span className="flex items-center space-x-1 font-semibold">
-              <MapPin className="w-3 h-3 text-[#946f19]" />
+              <MapPin className="w-3 h-3 text-[#0284c7]" />
               <span>CANTEIRO ATIVO</span>
             </span>
             <span className="text-[#16a34a] flex items-center space-x-1 font-medium">
@@ -273,7 +271,7 @@ export const LeftPane: React.FC<LeftPaneProps> = ({
             </div>
             <div className="w-full h-1.5 bg-[#e8e8e5] rounded-full overflow-hidden">
               <div 
-                className="h-full bg-gradient-to-r from-[#121110] via-[#55524e] to-[#946f19] rounded-full transition-all duration-500" 
+                className="h-full bg-gradient-to-r from-[#121110] via-[#334155] to-[#0284c7] rounded-full transition-all duration-500" 
                 style={{ width: `${activeProject.progress}%` }} 
               />
             </div>
@@ -287,7 +285,7 @@ export const LeftPane: React.FC<LeftPaneProps> = ({
             <div>
               <span className="text-[#8c8882]">Operários Hoje:</span>
               <div className="text-[#121110] font-medium flex items-center space-x-1">
-                <Users className="w-2.5 h-2.5 text-[#946f19]" />
+                <Users className="w-2.5 h-2.5 text-[#0284c7]" />
                 <span>{activeProject.activeWorkersCount} presentes</span>
               </div>
             </div>
@@ -298,7 +296,7 @@ export const LeftPane: React.FC<LeftPaneProps> = ({
         <div className="bg-white border border-[#e5e5e2] rounded-lg p-2.5 space-y-1.5 text-[10px] font-mono shadow-xs">
           <div className="flex items-center justify-between text-[#716e68] font-semibold">
             <span>CLIMA LITORÂNEO (ITAPEMA)</span>
-            <Sun className="w-3 h-3 text-[#d97706]" />
+            <Sun className="w-3 h-3 text-[#0284c7]" />
           </div>
           <div className="flex items-center justify-between text-[#121110] font-medium">
             <div className="flex items-center space-x-1">
@@ -311,7 +309,7 @@ export const LeftPane: React.FC<LeftPaneProps> = ({
             </div>
             <span>24°C</span>
           </div>
-          <div className="text-[9px] text-[#7c5e15] bg-[#fbf7ee] p-1.5 rounded border border-[#ebd8b2] leading-tight">
+          <div className="text-[9px] text-[#0369a1] bg-[#f0f9ff] p-1.5 rounded border border-[#bae6fd] leading-tight">
             Condições ideais para cura úmida de laje de concreto.
           </div>
         </div>
@@ -320,7 +318,7 @@ export const LeftPane: React.FC<LeftPaneProps> = ({
       {/* Footer Info */}
       <div className="p-3 border-t border-[#e5e5e2] bg-[#f7f7f5] text-[10px] flex items-center justify-between text-[#716e68] font-mono">
         <span>VERTA Engine v2.5.0</span>
-        <span className="text-[#946f19] font-medium">Sentinel Auth</span>
+        <span className="text-[#0284c7] font-medium">Sentinel Auth</span>
       </div>
     </aside>
   );

@@ -75,10 +75,10 @@ export const RightPane: React.FC<RightPaneProps> = ({
                     : 'text-[#615e58] hover:text-[#121110] hover:bg-[#f2f2ef] border-transparent'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-[#946f19]' : 'text-[#8c8882]'}`} />
+                <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-[#0284c7]' : 'text-[#8c8882]'}`} />
                 <span className="whitespace-nowrap">{tab.label}</span>
                 <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded font-medium whitespace-nowrap shrink-0 ${
-                  isActive ? 'bg-[#fbf7ee] text-[#946f19] border border-[#ebd8b2]' : 'bg-[#ededeb] text-[#716e68]'
+                  isActive ? 'bg-[#f0f9ff] text-[#0284c7] border border-[#bae6fd]' : 'bg-[#ededeb] text-[#716e68]'
                 }`}>
                   {tab.badge}
                 </span>

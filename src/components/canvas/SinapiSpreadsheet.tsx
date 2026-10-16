@@ -83,9 +83,9 @@ export const SinapiSpreadsheet: React.FC<SinapiSpreadsheetProps> = ({
       <div className="bg-[#fafaf9] border-b border-[#e5e5e2] p-3 space-y-2 shrink-0">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center space-x-2">
-            <FileSpreadsheet className="w-4 h-4 text-[#946f19]" />
+            <FileSpreadsheet className="w-4 h-4 text-[#0284c7]" />
             <span className="font-heading font-semibold text-[#121110]">Planilha Orçamentária SINAPI / CotaCasa</span>
-            <span className="text-[10px] font-mono text-[#946f19] bg-[#fbf7ee] px-1.5 py-0.5 rounded border border-[#ebd8b2] font-medium">
+            <span className="text-[10px] font-mono text-[#0284c7] bg-[#f0f9ff] px-1.5 py-0.5 rounded border border-[#bae6fd] font-medium">
               Base 02/2026 Não-Desonerado
             </span>
           </div>
@@ -114,7 +114,7 @@ export const SinapiSpreadsheet: React.FC<SinapiSpreadsheetProps> = ({
           <div className="bg-white border border-[#e5e5e2] p-2.5 rounded flex flex-col justify-between shadow-2xs">
             <div className="flex items-center justify-between text-[#716e68] text-[10px] font-sans">
               <span>Taxa BDI:</span>
-              <span className="text-[#946f19] font-bold font-mono">{bdiRate}%</span>
+              <span className="text-[#0284c7] font-bold font-mono">{bdiRate}%</span>
             </div>
             <input 
               type="range" 
@@ -128,12 +128,12 @@ export const SinapiSpreadsheet: React.FC<SinapiSpreadsheetProps> = ({
             <div className="text-[9px] text-[#8c8882]">R$ {bdiValue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</div>
           </div>
 
-          <div className="bg-[#fbf7ee] border border-[#ebd8b2] p-2.5 rounded shadow-2xs">
-            <div className="text-[#946f19] text-[10px] font-semibold font-sans">Preço Total Sugerido:</div>
-            <div className="font-bold text-[#805e10] text-xs">
+          <div className="bg-[#f0f9ff] border border-[#bae6fd] p-2.5 rounded shadow-2xs">
+            <div className="text-[#0284c7] text-[10px] font-semibold font-sans">Preço Total Sugerido:</div>
+            <div className="font-bold text-[#0369a1] text-xs">
               R$ {totalBudget.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
             </div>
-            <div className="text-[9px] text-[#9c7820]">R$ {pricePerSquareMeter.toFixed(2)}/m² de venda</div>
+            <div className="text-[9px] text-[#0284c7]">R$ {pricePerSquareMeter.toFixed(2)}/m² de venda</div>
           </div>
 
           <div className="bg-white border border-[#e5e5e2] p-2.5 rounded shadow-2xs">
@@ -197,7 +197,7 @@ export const SinapiSpreadsheet: React.FC<SinapiSpreadsheetProps> = ({
                 className="hover:bg-[#fbfbf9] transition group"
               >
                 {/* SINAPI Code */}
-                <td className="py-2 px-3 border-r border-[#ededeb] text-[#946f19] font-bold">
+                <td className="py-2 px-3 border-r border-[#ededeb] text-[#0284c7] font-bold">
                   {item.code}
                 </td>
 
@@ -248,7 +248,7 @@ export const SinapiSpreadsheet: React.FC<SinapiSpreadsheetProps> = ({
                     item.abcCurve === 'A' 
                       ? 'bg-red-50 text-red-700 border border-red-200' 
                       : item.abcCurve === 'B' 
-                      ? 'bg-amber-50 text-amber-700 border border-amber-200' 
+                      ? 'bg-sky-50 text-sky-700 border border-sky-200' 
                       : 'bg-slate-100 text-slate-600 border border-slate-200'
                   }`}>
                     {item.abcCurve}
@@ -263,7 +263,7 @@ export const SinapiSpreadsheet: React.FC<SinapiSpreadsheetProps> = ({
       {/* Spreadsheet Bottom Status Bar */}
       <div className="h-7 bg-[#fafaf9] border-t border-[#e5e5e2] px-3 flex items-center justify-between text-[10px] font-mono text-[#716e68]">
         <span>{filteredItems.length} composições calculadas • Edição em tempo real</span>
-        <span className="text-[#946f19] font-medium">Integração CotaCasa Ativa</span>
+        <span className="text-[#0284c7] font-medium">Integração CotaCasa Ativa</span>
       </div>
     </div>
   );

@@ -44,12 +44,12 @@
   border: 1px solid #e5e5e2;
 }
 
-.technical-border-bronze {
-  border: 1px solid rgba(184, 134, 11, 0.35);
+.technical-border-blue {
+  border: 1px solid rgba(2, 132, 199, 0.25);
 }
 
-.glow-bronze-sm {
-  box-shadow: 0 1px 8px -2px rgba(184, 134, 11, 0.2);
+.glow-blue-sm {
+  box-shadow: 0 1px 8px -2px rgba(2, 132, 199, 0.15);
 }
 
 /* Technical canvas architectural grid pattern (clean light mode) */

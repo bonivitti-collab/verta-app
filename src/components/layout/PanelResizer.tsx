@@ -20,8 +20,8 @@ export const PanelResizer: React.FC<PanelResizerProps> = ({
       title={title}
       className={`relative w-1 hover:w-1.5 shrink-0 cursor-col-resize select-none transition-all flex items-center justify-center z-20 group ${
         isDragging 
-          ? 'bg-[#121110] w-1.5 shadow-sm ring-1 ring-[#946f19]' 
-          : 'bg-[#e5e5e2] hover:bg-[#946f19]'
+          ? 'bg-[#121110] w-1.5 shadow-sm ring-1 ring-[#0284c7]' 
+          : 'bg-[#e5e5e2] hover:bg-[#0284c7]'
       }`}
     >
       {/* Invisible expanded hit-zone (8px wide) for easy cursor grab */}
@@ -31,7 +31,7 @@ export const PanelResizer: React.FC<PanelResizerProps> = ({
       <div className={`opacity-0 group-hover:opacity-100 transition-opacity flex flex-col space-y-1 items-center z-20 pointer-events-none ${
         isDragging ? 'opacity-100' : ''
       }`}>
-        <div className={`w-1 h-6 rounded-full shadow-xs ${isDragging ? 'bg-[#d4a359]' : 'bg-[#946f19]'}`} />
+        <div className={`w-1 h-6 rounded-full shadow-xs ${isDragging ? 'bg-[#38bdf8]' : 'bg-[#0284c7]'}`} />
       </div>
     </div>
   );

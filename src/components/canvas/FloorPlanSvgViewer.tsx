@@ -37,7 +37,7 @@ export const FloorPlanSvgViewer: React.FC = () => {
       <div className="h-10 bg-white border-b border-[#e5e5e2] px-3 flex items-center justify-between text-xs shadow-2xs shrink-0 overflow-x-auto no-scrollbar">
         <div className="flex items-center space-x-2 shrink-0 mr-2">
           <span className="font-heading font-semibold text-[#121110] whitespace-nowrap">Planta Baixa 2D</span>
-          <span className="text-[10px] font-mono text-[#946f19] bg-[#fbf7ee] px-1.5 py-0.5 rounded border border-[#ebd8b2] font-medium whitespace-nowrap">
+          <span className="text-[10px] font-mono text-[#0284c7] bg-[#f0f9ff] px-1.5 py-0.5 rounded border border-[#bae6fd] font-medium whitespace-nowrap">
             124.50 m² • NBR 15575
           </span>
         </div>
@@ -47,11 +47,11 @@ export const FloorPlanSvgViewer: React.FC = () => {
           <button
             onClick={() => setShowSolarPath(!showSolarPath)}
             className={`px-2 py-1 rounded text-[11px] font-mono flex items-center space-x-1 transition shrink-0 whitespace-nowrap ${
-              showSolarPath ? 'bg-[#fbf7ee] text-[#946f19] border border-[#dfc68b] font-medium' : 'bg-[#f7f7f5] text-[#716e68] border border-[#e5e5e2]'
+              showSolarPath ? 'bg-[#f0f9ff] text-[#0284c7] border border-[#bae6fd] font-medium' : 'bg-[#f7f7f5] text-[#716e68] border border-[#e5e5e2]'
             }`}
             title="Alternar Trajetória Solar e Brisa Marinha"
           >
-            <Sun className="w-3 h-3 text-[#d97706]" />
+            <Sun className="w-3 h-3 text-[#0284c7]" />
             <span className="hidden sm:inline">Carta Solar</span>
           </button>
 
@@ -156,46 +156,46 @@ export const FloorPlanSvgViewer: React.FC = () => {
             <rect x="140" y="44" width="120" height="12" fill="#0284c7" stroke="#0369a1" strokeWidth="1" />
             <rect x="90" y="316" width="220" height="8" fill="#38bdf8" opacity="0.9" />
 
-            {/* Door Swings */}
-            <path d="M 50 160 A 60 60 0 0 1 110 100" fill="none" stroke="#b8860b" strokeWidth="1.5" strokeDasharray="3,3" />
-            <line x1="50" y1="160" x2="50" y2="100" stroke="#b8860b" strokeWidth="2.5" />
+            {/* Door Swings (Blueprint Slate-Blue) */}
+            <path d="M 50 160 A 60 60 0 0 1 110 100" fill="none" stroke="#0284c7" strokeWidth="1.5" strokeDasharray="3,3" />
+            <line x1="50" y1="160" x2="50" y2="100" stroke="#0284c7" strokeWidth="2.5" />
 
-            <path d="M 426 120 A 45 45 0 0 1 471 165" fill="none" stroke="#b8860b" strokeWidth="1.5" strokeDasharray="3,3" />
-            <line x1="426" y1="120" x2="471" y2="120" stroke="#b8860b" strokeWidth="2.5" />
+            <path d="M 426 120 A 45 45 0 0 1 471 165" fill="none" stroke="#0284c7" strokeWidth="1.5" strokeDasharray="3,3" />
+            <line x1="426" y1="120" x2="471" y2="120" stroke="#0284c7" strokeWidth="2.5" />
 
-            <path d="M 426 340 A 45 45 0 0 1 471 385" fill="none" stroke="#b8860b" strokeWidth="1.5" strokeDasharray="3,3" />
-            <line x1="426" y1="340" x2="471" y2="340" stroke="#b8860b" strokeWidth="2.5" />
+            <path d="M 426 340 A 45 45 0 0 1 471 385" fill="none" stroke="#0284c7" strokeWidth="1.5" strokeDasharray="3,3" />
+            <line x1="426" y1="340" x2="471" y2="340" stroke="#0284c7" strokeWidth="2.5" />
 
             {/* Room Labels and Area Tags */}
             {showLabels && (
               <g className="font-sans text-center">
                 {/* Living */}
                 <text x="210" y="170" fill="#0f172a" fontSize="13" fontWeight="bold" textAnchor="middle">LIVING & COZINHA GOURMET</text>
-                <text x="210" y="188" fill="#946f19" fontSize="11" fontFamily="JetBrains Mono" fontWeight="600" textAnchor="middle">42.80 m² • Pé Direito 3.80m</text>
+                <text x="210" y="188" fill="#0284c7" fontSize="11" fontFamily="JetBrains Mono" fontWeight="600" textAnchor="middle">42.80 m² • Pé Direito 3.80m</text>
 
                 {/* Varanda */}
                 <text x="220" y="410" fill="#0f172a" fontSize="13" fontWeight="bold" textAnchor="middle">VARANDA GOURMET & DECK</text>
-                <text x="220" y="428" fill="#946f19" fontSize="11" fontFamily="JetBrains Mono" fontWeight="600" textAnchor="middle">24.00 m² • Churrasqueira</text>
+                <text x="220" y="428" fill="#0284c7" fontSize="11" fontFamily="JetBrains Mono" fontWeight="600" textAnchor="middle">24.00 m² • Churrasqueira</text>
 
                 {/* Suíte Master */}
                 <text x="520" y="150" fill="#0f172a" fontSize="13" fontWeight="bold" textAnchor="middle">SUÍTE MASTER</text>
-                <text x="520" y="168" fill="#946f19" fontSize="11" fontFamily="JetBrains Mono" fontWeight="600" textAnchor="middle">16.20 m² • Sol da Manhã</text>
+                <text x="520" y="168" fill="#0284c7" fontSize="11" fontFamily="JetBrains Mono" fontWeight="600" textAnchor="middle">16.20 m² • Sol da Manhã</text>
 
                 {/* BWC Suíte */}
                 <text x="690" y="115" fill="#475569" fontSize="10" fontWeight="bold" textAnchor="middle">BWC SUÍTE</text>
-                <text x="690" y="130" fill="#946f19" fontSize="9" fontFamily="JetBrains Mono" fontWeight="600" textAnchor="middle">4.50 m²</text>
+                <text x="690" y="130" fill="#0284c7" fontSize="9" fontFamily="JetBrains Mono" fontWeight="600" textAnchor="middle">4.50 m²</text>
 
                 {/* Dormitório 01 */}
                 <text x="510" y="340" fill="#0f172a" fontSize="12" fontWeight="bold" textAnchor="middle">DORMITÓRIO 01</text>
-                <text x="510" y="356" fill="#946f19" fontSize="10" fontFamily="JetBrains Mono" fontWeight="600" textAnchor="middle">12.00 m²</text>
+                <text x="510" y="356" fill="#0284c7" fontSize="10" fontFamily="JetBrains Mono" fontWeight="600" textAnchor="middle">12.00 m²</text>
 
                 {/* Dormitório 02 */}
                 <text x="680" y="340" fill="#0f172a" fontSize="12" fontWeight="bold" textAnchor="middle">DORMITÓRIO 02</text>
-                <text x="680" y="356" fill="#946f19" fontSize="10" fontFamily="JetBrains Mono" fontWeight="600" textAnchor="middle">11.50 m²</text>
+                <text x="680" y="356" fill="#0284c7" fontSize="10" fontFamily="JetBrains Mono" fontWeight="600" textAnchor="middle">11.50 m²</text>
 
                 {/* BWC Social */}
                 <text x="580" y="470" fill="#475569" fontSize="10" fontWeight="bold" textAnchor="middle">BWC SOCIAL</text>
-                <text x="580" y="485" fill="#946f19" fontSize="9" fontFamily="JetBrains Mono" fontWeight="600" textAnchor="middle">3.80 m²</text>
+                <text x="580" y="485" fill="#0284c7" fontSize="9" fontFamily="JetBrains Mono" fontWeight="600" textAnchor="middle">3.80 m²</text>
               </g>
             )}
 
@@ -218,13 +218,13 @@ export const FloorPlanSvgViewer: React.FC = () => {
             {showSolarPath && (
               <g transform="translate(740, 80)">
                 <circle cx="0" cy="0" r="28" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1.5" />
-                <text x="0" y="-14" fill="#dc2626" fontSize="10" fontWeight="bold" textAnchor="middle">N</text>
+                <text x="0" y="-14" fill="#0284c7" fontSize="10" fontWeight="bold" textAnchor="middle">N</text>
                 <text x="18" y="4" fill="#64748b" fontSize="9" textAnchor="middle">L</text>
                 <text x="0" y="20" fill="#64748b" fontSize="9" textAnchor="middle">S</text>
                 <text x="-18" y="4" fill="#64748b" fontSize="9" textAnchor="middle">O</text>
                 
-                <path d="M -22 10 A 24 24 0 0 1 22 10" fill="none" stroke="#d97706" strokeWidth="2" strokeDasharray="3,2" />
-                <circle cx="16" cy="-8" r="4" fill="#f59e0b" />
+                <path d="M -22 10 A 24 24 0 0 1 22 10" fill="none" stroke="#38bdf8" strokeWidth="2" strokeDasharray="3,2" />
+                <circle cx="16" cy="-8" r="4" fill="#0284c7" />
 
                 <path d="M 18 -18 L 4 -4" stroke="#0284c7" strokeWidth="2" />
                 <text x="0" y="38" fill="#0369a1" fontSize="8" fontFamily="JetBrains Mono" fontWeight="bold" textAnchor="middle">Vento NE (18 km/h)</text>
@@ -244,11 +244,11 @@ export const FloorPlanSvgViewer: React.FC = () => {
             <span className="font-medium">Esquadrias Alumínio</span>
           </div>
           <div className="flex items-center space-x-1.5">
-            <span className="w-2.5 h-2.5 bg-[#b8860b] rounded-xs" />
+            <span className="w-2.5 h-2.5 bg-[#64748b] rounded-xs" />
             <span className="font-medium">Portas Maciças</span>
           </div>
           <div className="flex items-center space-x-1.5">
-            <span className="w-2.5 h-2.5 bg-[#f59e0b] rounded-xs" />
+            <span className="w-2.5 h-2.5 bg-[#38bdf8] rounded-xs" />
             <span className="font-medium">Sol Leste (Quartos)</span>
           </div>
         </div>

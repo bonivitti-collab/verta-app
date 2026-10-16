@@ -30,9 +30,9 @@ export const GeofenceSiteMap: React.FC<GeofenceSiteMapProps> = ({
       {/* Top Bar */}
       <div className="h-10 bg-white border-b border-[#e5e5e2] px-3 flex items-center justify-between text-xs shadow-2xs shrink-0 overflow-x-auto no-scrollbar">
         <div className="flex items-center space-x-2 shrink-0 mr-2">
-          <MapPinned className="w-4 h-4 text-[#946f19]" />
+          <MapPinned className="w-4 h-4 text-[#0284c7]" />
           <span className="font-heading font-semibold text-[#121110] whitespace-nowrap">Verta Ponto GPS</span>
-          <span className="text-[10px] font-mono text-[#946f19] bg-[#fbf7ee] px-1.5 py-0.5 rounded border border-[#ebd8b2] font-medium whitespace-nowrap">
+          <span className="text-[10px] font-mono text-[#0284c7] bg-[#f0f9ff] px-1.5 py-0.5 rounded border border-[#bae6fd] font-medium whitespace-nowrap">
             Raio 30m • Portaria 671 MTE
           </span>
         </div>
@@ -59,7 +59,7 @@ export const GeofenceSiteMap: React.FC<GeofenceSiteMapProps> = ({
             <div className="flex justify-between items-center mb-3">
               <div>
                 <div className="font-semibold text-[#121110] flex items-center space-x-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-[#946f19]" />
+                  <MapPin className="w-3.5 h-3.5 text-[#0284c7]" />
                   <span>Radar Geofencing do Lote 14B</span>
                 </div>
                 <div className="text-[10px] font-mono text-[#716e68]">
@@ -79,15 +79,15 @@ export const GeofenceSiteMap: React.FC<GeofenceSiteMapProps> = ({
               <div className="absolute w-24 h-24 border border-[#94a3b8] rounded-full pointer-events-none" />
 
               {/* Geofence Perimeter Circle (30m boundary) */}
-              <div className="absolute w-52 h-52 border-2 border-dashed border-[#b8860b] bg-[#b8860b]/5 rounded-full flex items-center justify-center">
-                <span className="absolute -top-3 bg-white px-1.5 text-[9px] font-mono text-[#946f19] border border-[#ebd8b2] rounded font-semibold shadow-2xs">
+              <div className="absolute w-52 h-52 border-2 border-dashed border-[#0284c7] bg-[#0284c7]/5 rounded-full flex items-center justify-center">
+                <span className="absolute -top-3 bg-white px-1.5 text-[9px] font-mono text-[#0284c7] border border-[#bae6fd] rounded font-semibold shadow-2xs">
                   Cerca Virtual (Raio 30m)
                 </span>
               </div>
 
               {/* Construction Site Center Icon */}
               <div className="z-10 bg-[#121110] text-white font-bold p-1 rounded-full shadow-md">
-                <HardHat className="w-4 h-4 text-[#d4a359]" />
+                <HardHat className="w-4 h-4 text-[#38bdf8]" />
               </div>
 
               {/* Render Workers on Radar */}
@@ -143,7 +143,7 @@ export const GeofenceSiteMap: React.FC<GeofenceSiteMapProps> = ({
           <div className="bg-white border border-[#e5e5e2] rounded-xl p-3 space-y-2 shadow-xs">
             <div className="flex items-center justify-between">
               <span className="font-semibold text-[#121110] flex items-center space-x-1.5">
-                <Users className="w-3.5 h-3.5 text-[#946f19]" />
+                <Users className="w-3.5 h-3.5 text-[#0284c7]" />
                 <span>Registro Diário de Operários</span>
               </span>
               <span className="text-[10px] font-mono text-[#716e68] font-medium">{workers.length} Registros</span>
@@ -156,7 +156,7 @@ export const GeofenceSiteMap: React.FC<GeofenceSiteMapProps> = ({
                   onClick={() => setSelectedWorker(w)}
                   className={`p-2 rounded cursor-pointer transition flex items-center justify-between font-mono text-[11px] ${
                     selectedWorker?.id === w.id 
-                      ? 'bg-[#fbf7ee] border border-[#ebd8b2]' 
+                      ? 'bg-[#f0f9ff] border border-[#bae6fd]' 
                       : 'bg-[#fafaf9] hover:bg-[#f0f0ed] border border-transparent'
                   }`}
                 >
@@ -182,10 +182,10 @@ export const GeofenceSiteMap: React.FC<GeofenceSiteMapProps> = ({
           <div className="bg-white border border-[#e5e5e2] rounded-xl p-3 space-y-2.5 flex-1 shadow-xs">
             <div className="flex items-center justify-between">
               <span className="font-semibold text-[#121110] flex items-center space-x-1.5">
-                <Package className="w-3.5 h-3.5 text-[#946f19]" />
+                <Package className="w-3.5 h-3.5 text-[#0284c7]" />
                 <span>Auditoria Inteligente de Insumos</span>
               </span>
-              <span className="text-[9px] font-mono text-[#946f19] bg-[#fbf7ee] px-1.5 py-0.5 rounded border border-[#ebd8b2] font-semibold">
+              <span className="text-[9px] font-mono text-[#0284c7] bg-[#f0f9ff] px-1.5 py-0.5 rounded border border-[#bae6fd] font-semibold">
                 IA de Pesagem
               </span>
             </div>

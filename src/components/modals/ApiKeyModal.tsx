@@ -59,7 +59,7 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({ isOpen, onClose }) => 
         {/* Modal Header */}
         <div className="flex items-center justify-between border-b border-[#ededeb] pb-3">
           <div className="flex items-center space-x-2.5">
-            <div className="w-8 h-8 rounded-lg bg-[#fbf7ee] border border-[#dfc68b] flex items-center justify-center text-[#946f19]">
+            <div className="w-8 h-8 rounded-lg bg-[#f0f9ff] border border-[#bae6fd] flex items-center justify-center text-[#0284c7]">
               <Key className="w-4 h-4" />
             </div>
             <div>
@@ -73,12 +73,12 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({ isOpen, onClose }) => 
         </div>
 
         {/* Info Banner */}
-        <div className="bg-[#fbf7ee] border border-[#ebd8b2] p-3 rounded-lg space-y-1 text-[11px]">
-          <div className="flex items-center space-x-1.5 text-[#946f19] font-semibold">
+        <div className="bg-[#f0f9ff] border border-[#bae6fd] p-3 rounded-lg space-y-1 text-[11px]">
+          <div className="flex items-center space-x-1.5 text-[#0284c7] font-semibold">
             <Shield className="w-3.5 h-3.5" />
             <span>Controle de Custos e Margem Líquida</span>
           </div>
-          <p className="text-[#69531e] leading-relaxed">
+          <p className="text-[#0369a1] leading-relaxed">
             O VERTA opera com modelo neural de alta eficiência e raciocínio técnico para engenharia civil, 
             garantindo que cada inferência custe frações de centavo e mantenha 
             a margem de lucro SaaS superior a 85%.
@@ -99,7 +99,7 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({ isOpen, onClose }) => 
 
         {/* Status Feedback */}
         {status === 'testing' && (
-          <div className="text-[#946f19] text-[11px] flex items-center space-x-1.5 font-mono font-medium">
+          <div className="text-[#0284c7] text-[11px] flex items-center space-x-1.5 font-mono font-medium">
             <Cpu className="w-3.5 h-3.5 animate-spin" />
             <span>Validando chave com o motor neural de IA...</span>
           </div>

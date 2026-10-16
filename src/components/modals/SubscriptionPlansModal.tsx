@@ -88,7 +88,7 @@ export const SubscriptionPlansModal: React.FC<SubscriptionPlansModalProps> = ({
           <div>
             <div className="flex items-center space-x-2">
               <span className="font-heading font-extrabold text-base text-[#121110]">Modelo de Negócio VERTA SaaS</span>
-              <span className="text-[10px] font-mono text-[#946f19] bg-[#fbf7ee] px-2 py-0.5 rounded border border-[#ebd8b2] font-semibold">
+              <span className="text-[10px] font-mono text-[#0284c7] bg-[#f0f9ff] px-2 py-0.5 rounded border border-[#bae6fd] font-semibold">
                 Margem Líquida &gt; 85%
               </span>
             </div>
@@ -111,7 +111,7 @@ export const SubscriptionPlansModal: React.FC<SubscriptionPlansModalProps> = ({
                 key={plan.id}
                 className={`rounded-xl border p-5 flex flex-col justify-between transition-all ${
                   plan.highlighted
-                    ? 'bg-[#fdfbf7] border-[#dfc68b] shadow-md'
+                    ? 'bg-[#f0f9ff]/40 border-[#bae6fd] shadow-md'
                     : 'bg-white border-[#e5e5e2] hover:border-[#cbcbc5]'
                 }`}
               >
@@ -119,7 +119,7 @@ export const SubscriptionPlansModal: React.FC<SubscriptionPlansModalProps> = ({
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-mono uppercase text-[#716e68] tracking-wider font-semibold">{plan.badge}</span>
                     {isCurrent && (
-                      <span className="bg-[#fbf7ee] text-[#946f19] border border-[#dfc68b] text-[9px] font-bold px-1.5 py-0.5 rounded flex items-center space-x-1">
+                      <span className="bg-[#f0f9ff] text-[#0284c7] border border-[#bae6fd] text-[9px] font-bold px-1.5 py-0.5 rounded flex items-center space-x-1">
                         <CheckCircle2 className="w-2.5 h-2.5" />
                         <span>PLANO ATIVO</span>
                       </span>
@@ -177,10 +177,10 @@ export const SubscriptionPlansModal: React.FC<SubscriptionPlansModalProps> = ({
         {/* Footer Guarantee */}
         <div className="bg-[#f7f7f5] border border-[#e5e5e2] rounded-lg p-3 flex items-center justify-between text-[11px] font-mono text-[#716e68]">
           <div className="flex items-center space-x-2">
-            <Shield className="w-4 h-4 text-[#946f19]" />
+            <Shield className="w-4 h-4 text-[#0284c7]" />
             <span>Infraestrutura em nuvem integrada com Google Cloud Platform e Sentinel Systems.</span>
           </div>
-          <span className="text-[#946f19] font-medium">Cancelamento a qualquer momento</span>
+          <span className="text-[#0284c7] font-medium">Cancelamento a qualquer momento</span>
         </div>
       </div>
     </div>

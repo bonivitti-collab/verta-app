@@ -35,9 +35,9 @@ export const InspectionReportA4: React.FC<InspectionReportA4Props> = ({
       {/* Report Controls Bar */}
       <div className="h-10 bg-white border-b border-[#e5e5e2] px-3 flex items-center justify-between text-xs shadow-2xs shrink-0 overflow-x-auto no-scrollbar">
         <div className="flex items-center space-x-2 shrink-0 mr-2">
-          <FileCheck2 className="w-4 h-4 text-[#946f19]" />
+          <FileCheck2 className="w-4 h-4 text-[#0284c7]" />
           <span className="font-heading font-semibold text-[#121110] whitespace-nowrap">Laudo Pericial A4</span>
-          <span className="text-[10px] font-mono text-[#946f19] bg-[#fbf7ee] px-1.5 py-0.5 rounded border border-[#ebd8b2] font-medium whitespace-nowrap">
+          <span className="text-[10px] font-mono text-[#0284c7] bg-[#f0f9ff] px-1.5 py-0.5 rounded border border-[#bae6fd] font-medium whitespace-nowrap">
             ABNT NBR 13752
           </span>
         </div>
@@ -74,11 +74,11 @@ export const InspectionReportA4: React.FC<InspectionReportA4Props> = ({
             onClick={() => setShowWatermark(!showWatermark)}
             className={`flex items-center space-x-1 px-2 py-1 rounded text-[11px] font-mono transition border shrink-0 whitespace-nowrap ${
               showWatermark 
-                ? 'bg-amber-50 text-amber-800 border-amber-300 font-medium' 
+                ? 'bg-sky-50 text-sky-800 border-sky-300 font-medium' 
                 : 'bg-white text-[#716e68] border-[#dededb]'
             }`}
           >
-            {showWatermark ? <ToggleRight className="w-3.5 h-3.5 text-amber-600" /> : <ToggleLeft className="w-3.5 h-3.5 text-[#a8a49c]" />}
+            {showWatermark ? <ToggleRight className="w-3.5 h-3.5 text-sky-600" /> : <ToggleLeft className="w-3.5 h-3.5 text-[#a8a49c]" />}
             <span className="hidden sm:inline">{showWatermark ? "Marca d'água: ATIVA" : "Marca d'água: OFF"}</span>
           </button>
 
@@ -114,8 +114,8 @@ export const InspectionReportA4: React.FC<InspectionReportA4Props> = ({
             {/* Header with Institutional Branding */}
             <div className="border-b-2 border-[#1e293b] pb-4 flex justify-between items-start">
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-[#0f172a] rounded flex items-center justify-center text-[#d4a359] shadow-xs">
-                  <Building className="w-7 h-7 text-[#d4a359]" />
+                <div className="w-12 h-12 bg-[#0f172a] rounded flex items-center justify-center text-[#0284c7] shadow-xs">
+                  <Building className="w-7 h-7 text-[#0284c7]" />
                 </div>
                 <div>
                   <h1 className="font-heading font-extrabold text-xl text-[#0f172a] tracking-tight">GRUPO VITTI</h1>
@@ -160,10 +160,10 @@ export const InspectionReportA4: React.FC<InspectionReportA4Props> = ({
             <div className="border border-[#e2e8f0] rounded-md p-4 space-y-3">
               <div className="flex items-center justify-between border-b border-[#e2e8f0] pb-2">
                 <div className="flex items-center space-x-2">
-                  <AlertTriangle className="w-4 h-4 text-amber-600" />
+                  <AlertTriangle className="w-4 h-4 text-[#0284c7]" />
                   <span className="font-bold text-sm text-[#0f172a]">1. Manifestação Patológica Constatada</span>
                 </div>
-                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-300">
+                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-sky-50 text-sky-800 border border-sky-200">
                   Severidade: {data.severity.toUpperCase()}
                 </span>
               </div>
@@ -182,8 +182,8 @@ export const InspectionReportA4: React.FC<InspectionReportA4Props> = ({
                       <line x1="20" y1="120" x2="220" y2="120" stroke="#475569" strokeWidth="1" strokeDasharray="4,4" />
                       <text x="30" y="30" fill="#94a3b8" fontSize="9" fontFamily="monospace">VIGA BALDRAME VB-03</text>
                       <path d="M 60 140 Q 90 95 120 70 T 170 20" fill="none" stroke="#ef4444" strokeWidth="3" />
-                      <line x1="120" y1="70" x2="150" y2="70" stroke="#f59e0b" strokeWidth="1.5" />
-                      <text x="155" y="73" fill="#f59e0b" fontSize="8" fontFamily="monospace" fontWeight="bold">0,80 mm</text>
+                      <line x1="120" y1="70" x2="150" y2="70" stroke="#38bdf8" strokeWidth="1.5" />
+                      <text x="155" y="73" fill="#38bdf8" fontSize="8" fontFamily="monospace" fontWeight="bold">0,80 mm</text>
                     </svg>
                     <div className="absolute top-2 right-2 bg-black/70 px-1.5 py-0.5 rounded text-[9px] font-mono text-[#f8fafc]">
                       FISSURÔMETRO ÓTICO
@@ -202,8 +202,8 @@ export const InspectionReportA4: React.FC<InspectionReportA4Props> = ({
                       <path d="M 0 110 Q 120 130 240 105" fill="none" stroke="#0284c7" strokeWidth="2" strokeDasharray="3,3" />
                       <text x="20" y="105" fill="#38bdf8" fontSize="8" fontFamily="monospace">NÍVEL FREÁTICO DINÂMICO</text>
                       <rect x="90" y="50" width="60" height="40" fill="#64748b" stroke="#94a3b8" />
-                      <path d="M 120 20 L 120 50" stroke="#f59e0b" strokeWidth="3" />
-                      <text x="125" y="40" fill="#f59e0b" fontSize="8" fontFamily="monospace">RECALQUE 3mm</text>
+                      <path d="M 120 20 L 120 50" stroke="#38bdf8" strokeWidth="3" />
+                      <text x="125" y="40" fill="#38bdf8" fontSize="8" fontFamily="monospace">RECALQUE 3mm</text>
                     </svg>
                     <div className="absolute top-2 right-2 bg-black/70 px-1.5 py-0.5 rounded text-[9px] font-mono text-[#f8fafc]">
                       MODELO GEOTÉCNICO
