@@ -27,13 +27,13 @@ export const InspectionReportA4: React.FC<InspectionReportA4Props> = ({
   };
 
   return (
-    <div className="h-full flex flex-col bg-[#080807] text-xs select-none overflow-hidden">
+    <div className="h-full flex flex-col bg-[#f1f1ef] text-xs select-none overflow-hidden">
       {/* Report Controls Bar */}
-      <div className="h-10 bg-[#0e0d0b] border-b border-[#22201e] px-4 flex items-center justify-between text-xs">
+      <div className="h-10 bg-white border-b border-[#e5e5e2] px-4 flex items-center justify-between text-xs shadow-2xs">
         <div className="flex items-center space-x-2">
-          <FileCheck2 className="w-4 h-4 text-[#d4a359]" />
-          <span className="font-heading font-semibold text-white">Laudo Técnico Pericial A4</span>
-          <span className="text-[10px] font-mono text-[#8c7438] bg-[#1e180d] px-1.5 py-0.5 rounded border border-[#3b2d13]">
+          <FileCheck2 className="w-4 h-4 text-[#946f19]" />
+          <span className="font-heading font-semibold text-[#121110]">Laudo Técnico Pericial A4</span>
+          <span className="text-[10px] font-mono text-[#946f19] bg-[#fbf7ee] px-1.5 py-0.5 rounded border border-[#ebd8b2] font-medium">
             ABNT NBR 13752
           </span>
         </div>
@@ -44,17 +44,17 @@ export const InspectionReportA4: React.FC<InspectionReportA4Props> = ({
             onClick={() => setShowWatermark(!showWatermark)}
             className={`flex items-center space-x-1.5 px-2.5 py-1 rounded text-[11px] font-mono transition border ${
               showWatermark 
-                ? 'bg-amber-950/40 text-amber-300 border-amber-800/60' 
-                : 'bg-[#181613] text-[#a8a399] border-[#2e2a24]'
+                ? 'bg-amber-50 text-amber-800 border-amber-300 font-medium' 
+                : 'bg-white text-[#716e68] border-[#dededb]'
             }`}
           >
-            {showWatermark ? <ToggleRight className="w-4 h-4 text-amber-400" /> : <ToggleLeft className="w-4 h-4 text-[#635f56]" />}
+            {showWatermark ? <ToggleRight className="w-4 h-4 text-amber-600" /> : <ToggleLeft className="w-4 h-4 text-[#a8a49c]" />}
             <span>{showWatermark ? "Marca d'água: ATIVA (Plano Free)" : "Marca d'água: DESATIVADA (Pro)"}</span>
           </button>
 
           <button
             onClick={handlePrint}
-            className="px-3 py-1 bg-[#231d10] hover:bg-[#322814] border border-[#52411e] text-[#e0b44a] text-[11px] font-semibold rounded flex items-center space-x-1.5 transition shadow-lg shadow-black/50"
+            className="px-3 py-1 bg-[#121110] hover:bg-[#282624] text-white text-[11px] font-semibold rounded flex items-center space-x-1.5 transition shadow-xs"
           >
             <Printer className="w-3.5 h-3.5" />
             <span>Imprimir / Salvar PDF</span>
@@ -63,13 +63,13 @@ export const InspectionReportA4: React.FC<InspectionReportA4Props> = ({
       </div>
 
       {/* A4 Sheet Container */}
-      <div className="flex-1 overflow-auto p-6 flex justify-center bg-[#050504]">
+      <div className="flex-1 overflow-auto p-6 flex justify-center bg-[#f1f1ef]">
         {/* Printable Sheet */}
-        <div className="relative w-[794px] min-h-[1123px] bg-white text-[#111827] shadow-2xl rounded-sm p-12 flex flex-col justify-between font-sans print:p-0 print:shadow-none print:w-full">
+        <div className="relative w-[794px] min-h-[1123px] bg-white text-[#111827] shadow-xl shadow-neutral-300/80 rounded-sm p-12 flex flex-col justify-between font-sans border border-[#e2e2df] print:border-none print:p-0 print:shadow-none print:w-full">
           {/* Watermark Overlay (if enabled) */}
           {showWatermark && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 overflow-hidden">
-              <div className="text-[72px] font-extrabold text-red-500/12 transform -rotate-45 select-none font-mono tracking-widest text-center border-4 border-red-500/15 p-10 rounded-2xl">
+              <div className="text-[72px] font-extrabold text-red-500/10 transform -rotate-45 select-none font-mono tracking-widest text-center border-4 border-red-500/15 p-10 rounded-2xl">
                 VERTA FREE EDITION<br />
                 <span className="text-2xl font-normal text-red-500/20">DOCUMENTO NÃO VÁLIDO EM JUÍZO</span>
               </div>
@@ -81,8 +81,8 @@ export const InspectionReportA4: React.FC<InspectionReportA4Props> = ({
             {/* Header with Institutional Branding */}
             <div className="border-b-2 border-[#1e293b] pb-4 flex justify-between items-start">
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-[#0f172a] rounded flex items-center justify-center text-[#d4a359]">
-                  <Building className="w-7 h-7" />
+                <div className="w-12 h-12 bg-[#0f172a] rounded flex items-center justify-center text-[#d4a359] shadow-xs">
+                  <Building className="w-7 h-7 text-[#d4a359]" />
                 </div>
                 <div>
                   <h1 className="font-heading font-extrabold text-xl text-[#0f172a] tracking-tight">GRUPO VITTI</h1>
@@ -143,17 +143,12 @@ export const InspectionReportA4: React.FC<InspectionReportA4Props> = ({
               <div className="grid grid-cols-2 gap-3 pt-2">
                 <div className="border border-[#cbd5e1] rounded p-2 bg-[#f8fafc]">
                   <div className="h-44 bg-[#0f172a] rounded relative overflow-hidden flex items-center justify-center">
-                    {/* Simulated Crack Graphic */}
                     <svg viewBox="0 0 240 160" className="w-full h-full">
                       <rect width="240" height="160" fill="#334155" />
-                      {/* Concrete Texture Lines */}
                       <line x1="20" y1="40" x2="220" y2="40" stroke="#475569" strokeWidth="1" strokeDasharray="4,4" />
                       <line x1="20" y1="120" x2="220" y2="120" stroke="#475569" strokeWidth="1" strokeDasharray="4,4" />
-                      {/* Viga Baldrame text */}
                       <text x="30" y="30" fill="#94a3b8" fontSize="9" fontFamily="monospace">VIGA BALDRAME VB-03</text>
-                      {/* Diagonal crack at 45 degrees */}
                       <path d="M 60 140 Q 90 95 120 70 T 170 20" fill="none" stroke="#ef4444" strokeWidth="3" />
-                      {/* Measurement caliper */}
                       <line x1="120" y1="70" x2="150" y2="70" stroke="#f59e0b" strokeWidth="1.5" />
                       <text x="155" y="73" fill="#f59e0b" fontSize="8" fontFamily="monospace" fontWeight="bold">0,80 mm</text>
                     </svg>
@@ -170,12 +165,9 @@ export const InspectionReportA4: React.FC<InspectionReportA4Props> = ({
                   <div className="h-44 bg-[#0f172a] rounded relative overflow-hidden flex items-center justify-center">
                     <svg viewBox="0 0 240 160" className="w-full h-full">
                       <rect width="240" height="160" fill="#1e293b" />
-                      {/* Soil and foundation strata */}
                       <rect x="0" y="80" width="240" height="80" fill="#292524" />
-                      {/* Water table curve */}
                       <path d="M 0 110 Q 120 130 240 105" fill="none" stroke="#0284c7" strokeWidth="2" strokeDasharray="3,3" />
                       <text x="20" y="105" fill="#38bdf8" fontSize="8" fontFamily="monospace">NÍVEL FREÁTICO DINÂMICO</text>
-                      {/* Sapata foundation */}
                       <rect x="90" y="50" width="60" height="40" fill="#64748b" stroke="#94a3b8" />
                       <path d="M 120 20 L 120 50" stroke="#f59e0b" strokeWidth="3" />
                       <text x="125" y="40" fill="#f59e0b" fontSize="8" fontFamily="monospace">RECALQUE 3mm</text>
@@ -238,7 +230,7 @@ export const InspectionReportA4: React.FC<InspectionReportA4Props> = ({
                 <div>Acesse ver.verta.io</div>
                 <div>Código: 2026-VRT-9941</div>
               </div>
-              <div className="w-12 h-12 bg-[#0f172a] text-white p-1 rounded flex items-center justify-center">
+              <div className="w-12 h-12 bg-[#0f172a] text-white p-1 rounded flex items-center justify-center shadow-xs">
                 <QrCode className="w-10 h-10 text-white" />
               </div>
             </div>

@@ -42,9 +42,9 @@ export const RightPane: React.FC<RightPaneProps> = ({
   ];
 
   return (
-    <section className="flex-1 h-full bg-[#0a0a09] flex flex-col justify-between overflow-hidden select-none">
+    <section className="flex-1 h-full bg-white flex flex-col justify-between overflow-hidden select-none">
       {/* Right Canvas Tab Bar */}
-      <div className="h-11 bg-[#0d0c0a] border-b border-[#22201e] px-2 flex items-center justify-between text-xs overflow-x-auto no-scrollbar">
+      <div className="h-11 bg-[#fafaf9] border-b border-[#e5e5e2] px-2 flex items-center justify-between text-xs overflow-x-auto no-scrollbar">
         <div className="flex items-center space-x-1">
           {tabs.map((tab) => {
             const Icon = tab.icon;
@@ -56,14 +56,14 @@ export const RightPane: React.FC<RightPaneProps> = ({
                 onClick={() => onSelectTab(tab.id)}
                 className={`px-3 py-1.5 rounded-md flex items-center space-x-2 text-xs transition ${
                   isActive 
-                    ? 'bg-[#1e1a12] text-[#e0b44a] border border-[#483719] shadow-sm font-medium' 
-                    : 'text-[#8a857b] hover:text-[#d4a359] hover:bg-[#141310] border border-transparent'
+                    ? 'bg-white text-[#121110] border border-[#dcdcd8] shadow-xs font-semibold' 
+                    : 'text-[#716e68] hover:text-[#121110] hover:bg-[#f2f2ef] border border-transparent'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#c59b27]' : 'text-[#6c675e]'}`} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#946f19]' : 'text-[#8c8882]'}`} />
                 <span>{tab.label}</span>
-                <span className={`text-[9px] font-mono px-1 py-0.2 rounded ${
-                  isActive ? 'bg-[#31250f] text-[#f0c563]' : 'bg-[#161513] text-[#69645c]'
+                <span className={`text-[9px] font-mono px-1.5 py-0.2 rounded font-medium ${
+                  isActive ? 'bg-[#fbf7ee] text-[#946f19] border border-[#ebd8b2]' : 'bg-[#ededeb] text-[#716e68]'
                 }`}>
                   {tab.badge}
                 </span>
@@ -72,16 +72,16 @@ export const RightPane: React.FC<RightPaneProps> = ({
           })}
         </div>
 
-        <div className="hidden sm:flex items-center space-x-2 text-[10px] font-mono text-[#78746c] pr-2">
-          <span className="flex items-center space-x-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]" />
+        <div className="hidden sm:flex items-center space-x-2 text-[10px] font-mono text-[#716e68] pr-2">
+          <span className="flex items-center space-x-1 font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#16a34a]" />
             <span>Live Sync</span>
           </span>
         </div>
       </div>
 
       {/* Dynamic Tab Body */}
-      <div className="flex-1 overflow-hidden relative">
+      <div className="flex-1 overflow-hidden relative bg-[#fafaf9]">
         {activeTab === 'floorplan' && <FloorPlanSvgViewer />}
         {activeTab === 'spreadsheet' && (
           <SinapiSpreadsheet 

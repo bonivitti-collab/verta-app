@@ -50,20 +50,20 @@ export const NewProjectModal: React.FC<NewProjectModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-      <div className="bg-[#100f0d] border border-[#2b2721] rounded-2xl max-w-md w-full p-6 text-xs text-[#ddd9d0] shadow-2xl space-y-4">
+    <div className="fixed inset-0 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 z-50">
+      <div className="bg-white border border-[#e5e5e2] rounded-2xl max-w-md w-full p-6 text-xs text-[#242220] shadow-2xl space-y-4">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-[#23201b] pb-3">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 rounded-lg bg-[#201c10] border border-[#44381e] flex items-center justify-center text-[#d4a359]">
+        <div className="flex items-center justify-between border-b border-[#ededeb] pb-3">
+          <div className="flex items-center space-x-2.5">
+            <div className="w-8 h-8 rounded-lg bg-[#fbf7ee] border border-[#dfc68b] flex items-center justify-center text-[#946f19]">
               <Building2 className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="font-heading font-bold text-sm text-white">Cadastrar Nova Obra</h3>
-              <p className="text-[10px] text-[#7a766e]">Gerenciamento de canteiro do Grupo Vitti</p>
+              <h3 className="font-heading font-bold text-sm text-[#121110]">Cadastrar Nova Obra</h3>
+              <p className="text-[10px] text-[#716e68]">Gerenciamento de canteiro do Grupo Vitti</p>
             </div>
           </div>
-          <button onClick={onClose} className="p-1 hover:bg-[#1a1917] rounded text-[#827e75]">
+          <button onClick={onClose} className="p-1 hover:bg-[#f4f4f2] rounded text-[#716e68]">
             <X className="w-4 h-4" />
           </button>
         </div>
@@ -71,33 +71,33 @@ export const NewProjectModal: React.FC<NewProjectModalProps> = ({
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-3">
           <div>
-            <label className="text-[11px] font-mono text-[#8a857b] block mb-1">Nome do Empreendimento / Obra:</label>
+            <label className="text-[11px] font-mono text-[#55524e] font-semibold block mb-1">Nome do Empreendimento / Obra:</label>
             <input
               type="text"
               required
               placeholder="Ex: Residencial Mar Azul - Lote 08"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full bg-[#141311] border border-[#2e2a24] focus:border-[#c59b27] rounded-lg px-3 py-2 text-white text-xs focus:outline-none"
+              className="w-full bg-[#f8f8f6] border border-[#dcdcd8] focus:border-[#121110] focus:bg-white rounded-lg px-3 py-2 text-[#121110] text-xs focus:outline-none"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-[11px] font-mono text-[#8a857b] block mb-1">Código Interno:</label>
+              <label className="text-[11px] font-mono text-[#55524e] font-semibold block mb-1">Código Interno:</label>
               <input
                 type="text"
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
-                className="w-full bg-[#141311] border border-[#2e2a24] focus:border-[#c59b27] rounded-lg px-3 py-2 text-white font-mono text-xs focus:outline-none"
+                className="w-full bg-[#f8f8f6] border border-[#dcdcd8] focus:border-[#121110] focus:bg-white rounded-lg px-3 py-2 text-[#121110] font-mono text-xs focus:outline-none"
               />
             </div>
             <div>
-              <label className="text-[11px] font-mono text-[#8a857b] block mb-1">Tipologia:</label>
+              <label className="text-[11px] font-mono text-[#55524e] font-semibold block mb-1">Tipologia:</label>
               <select
                 value={type}
                 onChange={(e) => setType(e.target.value as any)}
-                className="w-full bg-[#141311] border border-[#2e2a24] focus:border-[#c59b27] rounded-lg px-3 py-2 text-white text-xs focus:outline-none"
+                className="w-full bg-[#f8f8f6] border border-[#dcdcd8] focus:border-[#121110] focus:bg-white rounded-lg px-3 py-2 text-[#121110] text-xs focus:outline-none"
               >
                 <option value="Litorâneo">Litorâneo</option>
                 <option value="Residencial">Residencial</option>
@@ -108,47 +108,47 @@ export const NewProjectModal: React.FC<NewProjectModalProps> = ({
           </div>
 
           <div>
-            <label className="text-[11px] font-mono text-[#8a857b] block mb-1">Localização (Cidade / Estado):</label>
+            <label className="text-[11px] font-mono text-[#55524e] font-semibold block mb-1">Localização (Cidade / Estado):</label>
             <input
               type="text"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              className="w-full bg-[#141311] border border-[#2e2a24] focus:border-[#c59b27] rounded-lg px-3 py-2 text-white text-xs focus:outline-none"
+              className="w-full bg-[#f8f8f6] border border-[#dcdcd8] focus:border-[#121110] focus:bg-white rounded-lg px-3 py-2 text-[#121110] text-xs focus:outline-none"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-[11px] font-mono text-[#8a857b] block mb-1">Área Total (m²):</label>
+              <label className="text-[11px] font-mono text-[#55524e] font-semibold block mb-1">Área Total (m²):</label>
               <input
                 type="number"
                 value={totalArea}
                 onChange={(e) => setTotalArea(e.target.value)}
-                className="w-full bg-[#141311] border border-[#2e2a24] focus:border-[#c59b27] rounded-lg px-3 py-2 text-white font-mono text-xs focus:outline-none"
+                className="w-full bg-[#f8f8f6] border border-[#dcdcd8] focus:border-[#121110] focus:bg-white rounded-lg px-3 py-2 text-[#121110] font-mono text-xs focus:outline-none"
               />
             </div>
             <div>
-              <label className="text-[11px] font-mono text-[#8a857b] block mb-1">Orçamento Previsto (R$):</label>
+              <label className="text-[11px] font-mono text-[#55524e] font-semibold block mb-1">Orçamento Previsto (R$):</label>
               <input
                 type="number"
                 value={budgetTotal}
                 onChange={(e) => setBudgetTotal(e.target.value)}
-                className="w-full bg-[#141311] border border-[#2e2a24] focus:border-[#c59b27] rounded-lg px-3 py-2 text-white font-mono text-xs focus:outline-none"
+                className="w-full bg-[#f8f8f6] border border-[#dcdcd8] focus:border-[#121110] focus:bg-white rounded-lg px-3 py-2 text-[#121110] font-mono text-xs focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="pt-3 border-t border-[#23201b] flex justify-end space-x-2">
+          <div className="pt-3 border-t border-[#ededeb] flex justify-end space-x-2">
             <button
               type="button"
               onClick={onClose}
-              className="px-3 py-1.5 bg-[#181613] hover:bg-[#201e1a] border border-[#2e2a24] rounded-md text-[11px]"
+              className="px-3 py-1.5 bg-[#f4f4f2] hover:bg-[#ededeb] border border-[#dededb] rounded-md text-[11px] font-medium transition"
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="px-4 py-1.5 bg-[#c59b27] hover:bg-[#d4a359] text-black font-semibold rounded-md text-[11px] transition shadow-lg shadow-[#c59b27]/20"
+              className="px-4 py-1.5 bg-[#121110] hover:bg-black text-white font-semibold rounded-md text-[11px] transition shadow-xs"
             >
               Criar Projeto
             </button>

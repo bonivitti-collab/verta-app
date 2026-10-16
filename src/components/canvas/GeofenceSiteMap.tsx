@@ -26,25 +26,25 @@ export const GeofenceSiteMap: React.FC<GeofenceSiteMapProps> = ({
   const outOfBoundsCount = workers.filter(w => w.status === 'out_of_bounds').length;
 
   return (
-    <div className="h-full flex flex-col bg-[#090908] text-xs select-none overflow-hidden">
+    <div className="h-full flex flex-col bg-[#f8fafc] text-xs select-none overflow-hidden">
       {/* Top Bar */}
-      <div className="h-10 bg-[#0e0d0b] border-b border-[#22201e] px-4 flex items-center justify-between text-xs">
+      <div className="h-10 bg-white border-b border-[#e5e5e2] px-4 flex items-center justify-between text-xs shadow-2xs">
         <div className="flex items-center space-x-2">
-          <MapPinned className="w-4 h-4 text-[#d4a359]" />
-          <span className="font-heading font-semibold text-white">Verta Ponto GPS & Auditoria de Insumos</span>
-          <span className="text-[10px] font-mono text-[#8b753a] bg-[#1d170c] px-1.5 py-0.5 rounded border border-[#3b2d13]">
+          <MapPinned className="w-4 h-4 text-[#946f19]" />
+          <span className="font-heading font-semibold text-[#121110]">Verta Ponto GPS & Auditoria de Insumos</span>
+          <span className="text-[10px] font-mono text-[#946f19] bg-[#fbf7ee] px-1.5 py-0.5 rounded border border-[#ebd8b2] font-medium">
             Cerca Virtual Raio 30m • Portaria 671 MTE
           </span>
         </div>
 
         <div className="flex items-center space-x-2 font-mono text-[11px]">
-          <span className="text-[#22c55e] flex items-center space-x-1">
-            <span className="w-2 h-2 rounded-full bg-[#22c55e] animate-pulse" />
+          <span className="text-[#16a34a] flex items-center space-x-1 font-medium">
+            <span className="w-2 h-2 rounded-full bg-[#16a34a] animate-pulse" />
             <span>{validWorkersCount} Válidos</span>
           </span>
           {outOfBoundsCount > 0 && (
-            <span className="text-[#ef4444] bg-red-950/50 px-2 py-0.5 rounded border border-red-800/60 flex items-center space-x-1">
-              <AlertTriangle className="w-3 h-3 text-[#ef4444]" />
+            <span className="text-red-700 bg-red-50 px-2 py-0.5 rounded border border-red-200 flex items-center space-x-1 font-medium">
+              <AlertTriangle className="w-3 h-3 text-red-600" />
               <span>{outOfBoundsCount} Fora do Lote</span>
             </span>
           )}
@@ -55,45 +55,44 @@ export const GeofenceSiteMap: React.FC<GeofenceSiteMapProps> = ({
       <div className="flex-1 overflow-auto p-4 grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Left Column: Simulated GPS Radar Map (7 cols) */}
         <div className="lg:col-span-7 flex flex-col space-y-4">
-          <div className="bg-[#100f0d] border border-[#23201c] rounded-xl p-4 flex-1 flex flex-col">
+          <div className="bg-white border border-[#e5e5e2] rounded-xl p-4 flex-1 flex flex-col shadow-xs">
             <div className="flex justify-between items-center mb-3">
               <div>
-                <div className="font-semibold text-white flex items-center space-x-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-[#c59b27]" />
+                <div className="font-semibold text-[#121110] flex items-center space-x-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-[#946f19]" />
                   <span>Radar Geofencing do Lote 14B</span>
                 </div>
-                <div className="text-[10px] font-mono text-[#78746c]">
+                <div className="text-[10px] font-mono text-[#716e68]">
                   Lat: {project.centerCoords.lat.toFixed(4)}, Lng: {project.centerCoords.lng.toFixed(4)}
                 </div>
               </div>
-              <div className="text-[10px] font-mono text-[#8e8a81] bg-[#181613] px-2 py-1 rounded border border-[#2b2721]">
+              <div className="text-[10px] font-mono text-[#55524e] bg-[#f7f7f5] px-2 py-1 rounded border border-[#e0e0dc]">
                 Tolerância GPS: ± 3 metros
               </div>
             </div>
 
             {/* Radar Canvas Graphic */}
-            <div className="relative flex-1 min-h-[300px] bg-[#0c0d10] border border-[#1c222d] rounded-lg overflow-hidden flex items-center justify-center">
+            <div className="relative flex-1 min-h-[300px] bg-[#f8fafc] border border-[#cbd5e1] rounded-lg overflow-hidden flex items-center justify-center">
               {/* Radar Grid Circles */}
-              <div className="absolute w-64 h-64 border border-[#1e293b] rounded-full pointer-events-none" />
-              <div className="absolute w-44 h-44 border border-[#233550] rounded-full pointer-events-none" />
-              <div className="absolute w-24 h-24 border border-[#334e75] rounded-full pointer-events-none" />
+              <div className="absolute w-64 h-64 border border-[#e2e8f0] rounded-full pointer-events-none" />
+              <div className="absolute w-44 h-44 border border-[#cbd5e1] rounded-full pointer-events-none" />
+              <div className="absolute w-24 h-24 border border-[#94a3b8] rounded-full pointer-events-none" />
 
               {/* Geofence Perimeter Circle (30m boundary) */}
-              <div className="absolute w-52 h-52 border-2 border-dashed border-[#c59b27] bg-[#c59b27]/5 rounded-full flex items-center justify-center">
-                <span className="absolute -top-3 bg-[#0a0a09] px-1.5 text-[9px] font-mono text-[#d4a359] border border-[#4d3c1a] rounded">
+              <div className="absolute w-52 h-52 border-2 border-dashed border-[#b8860b] bg-[#b8860b]/5 rounded-full flex items-center justify-center">
+                <span className="absolute -top-3 bg-white px-1.5 text-[9px] font-mono text-[#946f19] border border-[#ebd8b2] rounded font-semibold shadow-2xs">
                   Cerca Virtual (Raio 30m)
                 </span>
               </div>
 
               {/* Construction Site Center Icon */}
-              <div className="z-10 bg-[#c59b27] text-black font-bold p-1 rounded-full shadow-lg shadow-[#c59b27]/30">
-                <HardHat className="w-4 h-4" />
+              <div className="z-10 bg-[#121110] text-white font-bold p-1 rounded-full shadow-md">
+                <HardHat className="w-4 h-4 text-[#d4a359]" />
               </div>
 
               {/* Render Workers on Radar */}
               {workers.map((worker) => {
                 const isValid = worker.status === 'valid';
-                // Simulated radial positions
                 const angle = (parseInt(worker.id.replace('w-', '')) * 45) * (Math.PI / 180);
                 const distanceFactor = isValid ? 50 + (worker.distanceMeters * 1.5) : 130;
                 const x = Math.cos(angle) * distanceFactor;
@@ -106,14 +105,14 @@ export const GeofenceSiteMap: React.FC<GeofenceSiteMapProps> = ({
                     style={{ transform: `translate(${x}px, ${y}px)` }}
                     className={`absolute z-20 group p-1 rounded-full transition-transform hover:scale-125 ${
                       isValid 
-                        ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/30' 
-                        : 'bg-red-500 text-white animate-bounce shadow-lg shadow-red-500/40'
+                        ? 'bg-emerald-600 text-white shadow-sm' 
+                        : 'bg-red-600 text-white animate-bounce shadow-md'
                     }`}
                     title={`${worker.name} (${worker.trade}) - ${worker.distanceMeters}m`}
                   >
                     <div className="w-2.5 h-2.5 rounded-full" />
                     {/* Tooltip */}
-                    <div className="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-1 bg-[#12110f] border border-[#302c25] text-white text-[9px] font-mono px-2 py-1 rounded whitespace-nowrap z-30 shadow-xl">
+                    <div className="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-1 bg-[#121110] text-white text-[9px] font-mono px-2 py-1 rounded whitespace-nowrap z-30 shadow-xl">
                       {worker.name} • {worker.distanceMeters}m
                     </div>
                   </button>
@@ -123,13 +122,13 @@ export const GeofenceSiteMap: React.FC<GeofenceSiteMapProps> = ({
 
             {/* Selected Worker Info banner */}
             {selectedWorker && (
-              <div className="mt-3 bg-[#181613] border border-[#3b3425] p-2.5 rounded-lg flex items-center justify-between text-[11px] font-mono">
+              <div className="mt-3 bg-[#f7f7f5] border border-[#e5e5e2] p-2.5 rounded-lg flex items-center justify-between text-[11px] font-mono shadow-2xs">
                 <div>
-                  <div className="font-bold text-white">{selectedWorker.name} ({selectedWorker.trade})</div>
-                  <div className="text-[#8e897f]">Ponto batido às {selectedWorker.checkInTime} • {selectedWorker.distanceMeters}m do centro</div>
+                  <div className="font-bold text-[#121110]">{selectedWorker.name} ({selectedWorker.trade})</div>
+                  <div className="text-[#716e68]">Ponto batido às {selectedWorker.checkInTime} • {selectedWorker.distanceMeters}m do centro</div>
                 </div>
                 <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
-                  selectedWorker.status === 'valid' ? 'bg-emerald-950 text-emerald-400' : 'bg-red-950 text-red-400'
+                  selectedWorker.status === 'valid' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-red-50 text-red-700 border border-red-200'
                 }`}>
                   {selectedWorker.status === 'valid' ? 'DENTRO DA CERCA' : 'PONTO BLOQUEADO (FORA)'}
                 </span>
@@ -141,13 +140,13 @@ export const GeofenceSiteMap: React.FC<GeofenceSiteMapProps> = ({
         {/* Right Column: Workers List & Material Inflow Audit (5 cols) */}
         <div className="lg:col-span-5 space-y-4 flex flex-col">
           {/* Workers Presence List */}
-          <div className="bg-[#100f0d] border border-[#23201c] rounded-xl p-3 space-y-2">
+          <div className="bg-white border border-[#e5e5e2] rounded-xl p-3 space-y-2 shadow-xs">
             <div className="flex items-center justify-between">
-              <span className="font-semibold text-white flex items-center space-x-1.5">
-                <Users className="w-3.5 h-3.5 text-[#c59b27]" />
+              <span className="font-semibold text-[#121110] flex items-center space-x-1.5">
+                <Users className="w-3.5 h-3.5 text-[#946f19]" />
                 <span>Registro Diário de Operários</span>
               </span>
-              <span className="text-[10px] font-mono text-[#827e75]">{workers.length} Registros</span>
+              <span className="text-[10px] font-mono text-[#716e68] font-medium">{workers.length} Registros</span>
             </div>
 
             <div className="space-y-1 max-h-48 overflow-y-auto">
@@ -157,19 +156,19 @@ export const GeofenceSiteMap: React.FC<GeofenceSiteMapProps> = ({
                   onClick={() => setSelectedWorker(w)}
                   className={`p-2 rounded cursor-pointer transition flex items-center justify-between font-mono text-[11px] ${
                     selectedWorker?.id === w.id 
-                      ? 'bg-[#221c0e] border border-[#4a3916]' 
-                      : 'bg-[#141311] hover:bg-[#1a1815] border border-transparent'
+                      ? 'bg-[#fbf7ee] border border-[#ebd8b2]' 
+                      : 'bg-[#fafaf9] hover:bg-[#f0f0ed] border border-transparent'
                   }`}
                 >
                   <div>
-                    <div className="text-[#e2ded6] font-sans font-medium text-xs">{w.name}</div>
-                    <div className="text-[#7c776f] text-[10px]">{w.trade} • {w.checkInTime}</div>
+                    <div className="text-[#121110] font-sans font-semibold text-xs">{w.name}</div>
+                    <div className="text-[#716e68] text-[10px]">{w.trade} • {w.checkInTime}</div>
                   </div>
                   <div className="text-right">
                     <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${
                       w.status === 'valid' 
-                        ? 'bg-emerald-950/60 text-emerald-400' 
-                        : 'bg-red-950/80 text-red-400 border border-red-800'
+                        ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' 
+                        : 'bg-red-50 text-red-700 border border-red-200'
                     }`}>
                       {w.distanceMeters}m
                     </span>
@@ -180,18 +179,18 @@ export const GeofenceSiteMap: React.FC<GeofenceSiteMapProps> = ({
           </div>
 
           {/* Smart Material Intake Audit Card */}
-          <div className="bg-[#100f0d] border border-[#23201c] rounded-xl p-3 space-y-2.5 flex-1">
+          <div className="bg-white border border-[#e5e5e2] rounded-xl p-3 space-y-2.5 flex-1 shadow-xs">
             <div className="flex items-center justify-between">
-              <span className="font-semibold text-white flex items-center space-x-1.5">
-                <Package className="w-3.5 h-3.5 text-[#d4a359]" />
+              <span className="font-semibold text-[#121110] flex items-center space-x-1.5">
+                <Package className="w-3.5 h-3.5 text-[#946f19]" />
                 <span>Auditoria Inteligente de Insumos</span>
               </span>
-              <span className="text-[9px] font-mono text-[#c59b27] bg-[#221c0e] px-1.5 py-0.5 rounded border border-[#3e3215]">
+              <span className="text-[9px] font-mono text-[#946f19] bg-[#fbf7ee] px-1.5 py-0.5 rounded border border-[#ebd8b2] font-semibold">
                 IA de Pesagem
               </span>
             </div>
 
-            <div className="text-[10px] text-[#7a766e]">
+            <div className="text-[10px] text-[#716e68]">
               Confronto do consumo teórico da etapa com notas fiscais e registro fotográfico.
             </div>
 
@@ -199,23 +198,23 @@ export const GeofenceSiteMap: React.FC<GeofenceSiteMapProps> = ({
               {materials.map((m) => {
                 const isCritical = m.status === 'critical';
                 return (
-                  <div key={m.id} className="bg-[#141311] border border-[#23201c] p-2 rounded space-y-1">
+                  <div key={m.id} className="bg-[#fafaf9] border border-[#e5e5e2] p-2.5 rounded space-y-1 shadow-2xs">
                     <div className="flex items-center justify-between">
-                      <span className="text-white font-sans text-xs font-medium">{m.material}</span>
+                      <span className="text-[#121110] font-sans text-xs font-semibold">{m.material}</span>
                       <span className={`px-1.5 py-0.5 rounded text-[9px] font-bold ${
-                        isCritical ? 'bg-red-950 text-red-400 border border-red-800' : 'bg-emerald-950 text-emerald-400'
+                        isCritical ? 'bg-red-50 text-red-700 border border-red-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                       }`}>
                         {m.variancePercentage > 0 ? `+${m.variancePercentage}%` : `${m.variancePercentage}%`}
                       </span>
                     </div>
 
-                    <div className="flex justify-between text-[10px] text-[#8c887f]">
+                    <div className="flex justify-between text-[10px] text-[#716e68]">
                       <span>Teórico: {m.theoreticalConsumption} {m.unit}</span>
                       <span>Recebido: {m.physicalReceipt} {m.unit}</span>
                     </div>
 
                     {isCritical && (
-                      <div className="text-[9px] text-red-400 bg-red-950/30 p-1 rounded border border-red-900/40">
+                      <div className="text-[9px] text-red-700 bg-red-50 p-1.5 rounded border border-red-200 font-medium">
                         Alerta: Desvio negativo detectado! Risco de subdimensionamento ou desvio.
                       </div>
                     )}

@@ -166,7 +166,7 @@ Estou sincronizado com a obra ativa **${activeProject.name}** (${activeProject.c
   };
 
   return (
-    <div className="h-screen w-screen bg-black flex flex-col overflow-hidden text-white font-sans">
+    <div className="h-screen w-screen bg-white flex flex-col overflow-hidden text-[#121110] font-sans">
       {/* Top IDE Header Bar */}
       <HeaderIDE
         projects={projects}

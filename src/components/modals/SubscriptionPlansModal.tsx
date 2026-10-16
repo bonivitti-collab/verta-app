@@ -81,22 +81,22 @@ export const SubscriptionPlansModal: React.FC<SubscriptionPlansModalProps> = ({
   ];
 
   return (
-    <div className="fixed inset-0 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 z-50">
-      <div className="bg-[#0f0e0c] border border-[#2b2721] rounded-2xl max-w-4xl w-full p-6 text-xs text-[#ddd9d0] shadow-2xl space-y-6">
+    <div className="fixed inset-0 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 z-50">
+      <div className="bg-white border border-[#e5e5e2] rounded-2xl max-w-4xl w-full p-6 text-xs text-[#242220] shadow-2xl space-y-6">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-[#23201b] pb-4">
+        <div className="flex items-center justify-between border-b border-[#ededeb] pb-4">
           <div>
             <div className="flex items-center space-x-2">
-              <span className="font-heading font-extrabold text-base text-white">Modelo de Negócio VERTA SaaS</span>
-              <span className="text-[10px] font-mono text-[#c59b27] bg-[#221c0e] px-2 py-0.5 rounded border border-[#3e3215]">
+              <span className="font-heading font-extrabold text-base text-[#121110]">Modelo de Negócio VERTA SaaS</span>
+              <span className="text-[10px] font-mono text-[#946f19] bg-[#fbf7ee] px-2 py-0.5 rounded border border-[#ebd8b2] font-semibold">
                 Margem Líquida &gt; 85%
               </span>
             </div>
-            <p className="text-[11px] text-[#8e897e] mt-0.5">
+            <p className="text-[11px] text-[#716e68] mt-0.5">
               Escolha ou simule o plano ativo para desbloquear recursos de IA e remover marca d'água.
             </p>
           </div>
-          <button onClick={onClose} className="p-1 hover:bg-[#1a1917] rounded text-[#827e75]">
+          <button onClick={onClose} className="p-1 hover:bg-[#f4f4f2] rounded text-[#716e68]">
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -111,15 +111,15 @@ export const SubscriptionPlansModal: React.FC<SubscriptionPlansModalProps> = ({
                 key={plan.id}
                 className={`rounded-xl border p-5 flex flex-col justify-between transition-all ${
                   plan.highlighted
-                    ? 'bg-gradient-to-b from-[#19150d] to-[#11100d] border-[#c59b27] shadow-xl shadow-[#c59b27]/10'
-                    : 'bg-[#12110f] border-[#25221d] hover:border-[#38342d]'
+                    ? 'bg-[#fdfbf7] border-[#dfc68b] shadow-md'
+                    : 'bg-white border-[#e5e5e2] hover:border-[#cbcbc5]'
                 }`}
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono uppercase text-[#7d7971] tracking-wider">{plan.badge}</span>
+                    <span className="text-[10px] font-mono uppercase text-[#716e68] tracking-wider font-semibold">{plan.badge}</span>
                     {isCurrent && (
-                      <span className="bg-[#241d0f] text-[#d4a359] border border-[#483719] text-[9px] font-bold px-1.5 py-0.5 rounded flex items-center space-x-1">
+                      <span className="bg-[#fbf7ee] text-[#946f19] border border-[#dfc68b] text-[9px] font-bold px-1.5 py-0.5 rounded flex items-center space-x-1">
                         <CheckCircle2 className="w-2.5 h-2.5" />
                         <span>PLANO ATIVO</span>
                       </span>
@@ -127,32 +127,32 @@ export const SubscriptionPlansModal: React.FC<SubscriptionPlansModalProps> = ({
                   </div>
 
                   <div>
-                    <h4 className="font-heading font-bold text-base text-white">{plan.name}</h4>
+                    <h4 className="font-heading font-bold text-base text-[#121110]">{plan.name}</h4>
                     <div className="flex items-baseline space-x-1 mt-1">
-                      <span className="text-2xl font-bold font-mono text-white">{plan.price}</span>
-                      <span className="text-[#847f75] font-mono">{plan.period}</span>
+                      <span className="text-2xl font-bold font-mono text-[#121110]">{plan.price}</span>
+                      <span className="text-[#716e68] font-mono">{plan.period}</span>
                     </div>
                   </div>
 
-                  <p className="text-[11px] text-[#8e8a81] leading-snug">{plan.description}</p>
+                  <p className="text-[11px] text-[#55524e] leading-snug">{plan.description}</p>
 
-                  <div className="pt-2 border-t border-[#23201b] space-y-1.5">
+                  <div className="pt-2 border-t border-[#f0f0ed] space-y-1.5">
                     {plan.features.map((f, i) => (
-                      <div key={i} className="flex items-start space-x-2 text-[11px] text-[#c9c5bc]">
-                        <Check className="w-3.5 h-3.5 text-[#22c55e] shrink-0 mt-0.5" />
+                      <div key={i} className="flex items-start space-x-2 text-[11px] text-[#33312e]">
+                        <Check className="w-3.5 h-3.5 text-[#16a34a] shrink-0 mt-0.5" />
                         <span>{f}</span>
                       </div>
                     ))}
                     {plan.notIncluded.map((f, i) => (
-                      <div key={i} className="flex items-start space-x-2 text-[11px] text-[#5e5a52]">
-                        <X className="w-3.5 h-3.5 text-[#5e5a52] shrink-0 mt-0.5" />
+                      <div key={i} className="flex items-start space-x-2 text-[11px] text-[#a8a49c]">
+                        <X className="w-3.5 h-3.5 text-[#a8a49c] shrink-0 mt-0.5" />
                         <span className="line-through">{f}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-5 mt-4 border-t border-[#1e1c18]">
+                <div className="pt-5 mt-4 border-t border-[#f0f0ed]">
                   <button
                     onClick={() => {
                       onSelectTier(plan.id);
@@ -160,10 +160,10 @@ export const SubscriptionPlansModal: React.FC<SubscriptionPlansModalProps> = ({
                     }}
                     className={`w-full py-2 rounded-lg text-xs font-semibold transition ${
                       isCurrent
-                        ? 'bg-[#201c13] text-[#c59b27] border border-[#3e331a] cursor-default'
+                        ? 'bg-[#f4f4f2] text-[#716e68] border border-[#e0e0dc] cursor-default'
                         : plan.highlighted
-                        ? 'bg-[#c59b27] text-black hover:bg-[#d4a359] shadow-lg shadow-[#c59b27]/20'
-                        : 'bg-[#181613] hover:bg-[#22201b] text-white border border-[#2b2721]'
+                        ? 'bg-[#121110] text-white hover:bg-black shadow-xs'
+                        : 'bg-[#f7f7f5] hover:bg-[#ededeb] text-[#121110] border border-[#dededb]'
                     }`}
                   >
                     {isCurrent ? 'Plano Selecionado' : `Ativar ${plan.name}`}
@@ -175,12 +175,12 @@ export const SubscriptionPlansModal: React.FC<SubscriptionPlansModalProps> = ({
         </div>
 
         {/* Footer Guarantee */}
-        <div className="bg-[#14120e] border border-[#262014] rounded-lg p-3 flex items-center justify-between text-[11px] font-mono text-[#8a857b]">
+        <div className="bg-[#f7f7f5] border border-[#e5e5e2] rounded-lg p-3 flex items-center justify-between text-[11px] font-mono text-[#716e68]">
           <div className="flex items-center space-x-2">
-            <Shield className="w-4 h-4 text-[#c59b27]" />
+            <Shield className="w-4 h-4 text-[#946f19]" />
             <span>Infraestrutura em nuvem integrada com Google Cloud Platform e Sentinel Systems.</span>
           </div>
-          <span className="text-[#d4a359]">Cancelamento a qualquer momento</span>
+          <span className="text-[#946f19] font-medium">Cancelamento a qualquer momento</span>
         </div>
       </div>
     </div>
