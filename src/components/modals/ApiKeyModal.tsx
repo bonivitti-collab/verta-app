@@ -34,6 +34,7 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({ isOpen, onClose }) => 
     setErrorMessage('');
 
     try {
+      if (true) { throw new Error('PWA Congelado: Chamadas de API desativadas para proteção de créditos.'); }
       const ai = new GoogleGenAI({ apiKey: apiKey.trim() });
       const response = await ai.models.generateContent({
         model: 'gemini-2.5-flash',

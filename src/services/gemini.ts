@@ -15,7 +15,10 @@ export interface AiGenerationResult {
   artifactPayload?: any;
 }
 
+export const IS_FROZEN = true;
+
 export function getStoredApiKey(): string {
+  if (IS_FROZEN) return '';
   return localStorage.getItem('VERTA_AI_API_KEY') || 
          localStorage.getItem('VERTA_GEMINI_API_KEY') || 
          import.meta.env.VITE_AI_API_KEY || 
